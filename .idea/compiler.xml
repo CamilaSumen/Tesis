@@ -13,6 +13,7 @@
         <module name="microservice-gateway" />
         <module name="microservice-configServer" />
         <module name="microservice-producto" />
+        <module name="microservice-cargo" />
         <module name="microservice-eureka" />
         <module name="microservice-categoria" />
       </profile>
@@ -28,6 +29,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-cargo" options="-parameters" />
       <module name="microservice-cartelera" options="-parameters" />
       <module name="microservice-categoria" options="-parameters" />
       <module name="microservice-configServer" options="-parameters" />

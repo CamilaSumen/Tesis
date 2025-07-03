@@ -22,6 +22,7 @@
     <module>microservice-eureka</module>
     <module>microservice-configServer</module>
     <module>microservice-categoria</module>
+    <module>microservice-cargo</module>
     <module>microservice-producto</module>
   </modules>
 

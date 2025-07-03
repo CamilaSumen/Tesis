@@ -31,7 +31,11 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: peliculas
+        - id: categoria
           uri: lb://msvc-categoria
           predicates:
             - Path=/api/categoriaproducto/**
+        - id: cargo
+          uri: lb://msvc-cargo
+          predicates:
+            - Path=/api/cargo/**

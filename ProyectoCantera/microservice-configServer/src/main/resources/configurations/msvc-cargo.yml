@@ -1,9 +1,9 @@
 server:
-  port: 9080
+  port: 9081
 
 spring:
   application:
-    name: msvc-categoria
+    name: msvc-cargo
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://localhost:1433;databaseName=LA_CANTERA;trustServerCertificate=true
