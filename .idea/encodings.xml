@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-cartelera/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-cartelera/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-categoria/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-configServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-configServer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-confiteria/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-confiteria/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-peliculas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-peliculas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-producto/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-sedes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-sedes/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-ventas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-ventas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

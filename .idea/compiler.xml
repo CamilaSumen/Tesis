@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/ProyectoCantera/microservice-sedes/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-gateway" />
+        <module name="microservice-configServer" />
+        <module name="microservice-producto" />
+        <module name="microservice-eureka" />
+        <module name="microservice-categoria" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-cartelera" target="19" />
+      <module name="microservice-confiteria" target="19" />
+      <module name="microservice-peliculas" target="19" />
+      <module name="microservice-sedes" target="19" />
+      <module name="microservice-ventas" target="19" />
+      <module name="ProyectoMicrosCantera" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-cartelera" options="-parameters" />
+      <module name="microservice-categoria" options="-parameters" />
+      <module name="microservice-configServer" options="-parameters" />
+      <module name="microservice-confiteria" options="-parameters" />
+      <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-peliculas" options="-parameters" />
+      <module name="microservice-producto" options="-parameters" />
+      <module name="microservice-sedes" options="-parameters" />
+      <module name="microservice-ventas" options="-parameters" />
+    </option>
+  </component>
+</project>
