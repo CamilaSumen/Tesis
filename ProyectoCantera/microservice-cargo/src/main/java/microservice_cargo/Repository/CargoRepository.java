@@ -2,6 +2,7 @@ package microservice_cargo.Repository;
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
 import microservice_cargo.Model.Privilegio;
+import microservice_cargo.Model.Turno;
 
 import java.util.List;
 
@@ -25,5 +26,12 @@ public interface CargoRepository {
     void insertarPrivilegio(Privilegio privilegio);
     void eliminarPrivilegioLogico(int id);
     void modificarPrivilegio(Privilegio privilegio);
+
+    /*REPOSITPRY PARA LOS TURNOS*/
+    List<Turno> listarTurnos();
+    void insertarTurno(Turno turno);
+    void eliminarTurnoLogico(int id);
+    void modificarTurno(Turno turno);
+
 
 }

@@ -3,13 +3,16 @@ package microservice_cargo.Repository;
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
 import microservice_cargo.Model.Privilegio;
+import microservice_cargo.Model.Turno;
 import microservice_cargo.Repository.RowMapper.CargoRowMapper;
 import microservice_cargo.Repository.RowMapper.EmpleadoRowMapper;
 import microservice_cargo.Repository.RowMapper.PrivilegioRowMapper;
+import microservice_cargo.Repository.RowMapper.TurnoRowMapper;
 import microservice_cargo.Repository.StoredProcedure.StoredProcedureC;
 import microservice_cargo.Repository.Translator.CargoTranslator;
 import microservice_cargo.Repository.Translator.EmpleadoTranslator;
 import microservice_cargo.Repository.Translator.PrivilegioTranslator;
+import microservice_cargo.Repository.Translator.TurnoTranslator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -134,4 +137,39 @@ public class CargoRepositoryImpl implements CargoRepository {
                 privilegio.getDescription(),
                 privilegio.getObservation());
     }
+
+
+    /*IMPLEMENTACION PARA LOS TURNOS*/
+
+    @Override
+    public List<Turno> listarTurnos() {
+        String sql = StoredProcedureC.SEL_TURNO;
+        List<TurnoTranslator> lista = jdbcTemplate.query(sql, new TurnoRowMapper());
+        return lista.stream()
+                .map(TurnoTranslator::toTurnoDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void insertarTurno(Turno turno) {
+        jdbcTemplate.update(StoredProcedureC.INS_TURNONUEVO,
+                turno.getNameshift(),
+                turno.getStartTime(),
+                turno.getEndTime());
+    }
+
+    @Override
+    public void eliminarTurnoLogico(int id) {
+        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARTURNOLOGICO, id);
+    }
+
+    @Override
+    public void modificarTurno(Turno turno) {
+        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARTURNO,
+                turno.getShiftId(),
+                turno.getNameshift(),
+                turno.getStartTime(),
+                turno.getEndTime());
+    }
+
 }

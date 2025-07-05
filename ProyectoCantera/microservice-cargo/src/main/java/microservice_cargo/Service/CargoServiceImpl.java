@@ -3,6 +3,7 @@ package microservice_cargo.Service;
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
 import microservice_cargo.Model.Privilegio;
+import microservice_cargo.Model.Turno;
 import microservice_cargo.Repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
@@ -81,4 +82,26 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarPrivilegio(privilegio);
     }
 
+
+    /* IMPLEMENTACION PARA LOS TURNOS*/
+
+    @Override
+    public List<Turno> listarTurnos() {
+        return cargoRepository.listarTurnos();
+    }
+
+    @Override
+    public void insertarTurno(Turno turno) {
+        cargoRepository.insertarTurno(turno);
+    }
+
+    @Override
+    public void eliminarTurnoLogico(int id) {
+        cargoRepository.eliminarTurnoLogico(id);
+    }
+
+    @Override
+    public void modificarTurno(Turno turno) {
+        cargoRepository.modificarTurno(turno);
+    }
 }
