@@ -2,11 +2,14 @@ package microservice_cargo.Repository;
 
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
+import microservice_cargo.Model.Privilegio;
 import microservice_cargo.Repository.RowMapper.CargoRowMapper;
 import microservice_cargo.Repository.RowMapper.EmpleadoRowMapper;
+import microservice_cargo.Repository.RowMapper.PrivilegioRowMapper;
 import microservice_cargo.Repository.StoredProcedure.StoredProcedureC;
 import microservice_cargo.Repository.Translator.CargoTranslator;
 import microservice_cargo.Repository.Translator.EmpleadoTranslator;
+import microservice_cargo.Repository.Translator.PrivilegioTranslator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -20,6 +23,7 @@ public class CargoRepositoryImpl implements CargoRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /*IMPLEMENTACION PARA LOS CARGOS*/
     @Override
     public List<Cargo> listarCargos() {
         String sql = StoredProcedureC.SEL_CARGO;
@@ -50,6 +54,8 @@ public class CargoRepositoryImpl implements CargoRepository {
                 cargo.getDescriptioncargue(),
                 cargo.getSalary());
     }
+
+    /*IMPLEMENTACION PARA LOS EMPLEADOS*/
 
     @Override
     public List<Empleado> listarEmpleados() {
@@ -95,4 +101,37 @@ public class CargoRepositoryImpl implements CargoRepository {
                 empleado.getChargeId());
     }
 
+
+    /*IMPLEMENTACION PARA LOS PRIVILEGIOS*/
+
+    @Override
+    public List<Privilegio> listarPrivilegios() {
+        String sql = StoredProcedureC.SEL_PRIVILEGIO;
+        List<PrivilegioTranslator> lista = jdbcTemplate.query(sql, new PrivilegioRowMapper());
+        return lista.stream()
+                .map(PrivilegioTranslator::toPrivilegioDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void insertarPrivilegio(Privilegio privilegio) {
+        jdbcTemplate.update(StoredProcedureC.INS_PRIVILEGIONUEVO,
+                privilegio.getPrivilegeName(),
+                privilegio.getDescription(),
+                privilegio.getObservation());
+    }
+
+    @Override
+    public void eliminarPrivilegioLogico(int id) {
+        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARPRIVILEGIOLOGICO, id);
+    }
+
+    @Override
+    public void modificarPrivilegio(Privilegio privilegio) {
+        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARPRIVILEGIO,
+                privilegio.getPrivilegeId(),
+                privilegio.getPrivilegeName(),
+                privilegio.getDescription(),
+                privilegio.getObservation());
+    }
 }

@@ -1,6 +1,5 @@
 package microservice_cargo.Repository.RowMapper;
 
-import microservice_cargo.Repository.Translator.CargoTranslator;
 import microservice_cargo.Repository.Translator.EmpleadoTranslator;
 import org.springframework.jdbc.core.RowMapper;
 

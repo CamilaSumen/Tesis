@@ -1,6 +1,7 @@
 package microservice_cargo.Repository;
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
+import microservice_cargo.Model.Privilegio;
 
 import java.util.List;
 
@@ -18,5 +19,11 @@ public interface CargoRepository {
     void insertarEmpleado(Empleado empleado);
     void eliminarEmpleadoLogico(int id);
     void modificarEmpleado(Empleado empleado);
+
+    /*REPOSITPRY PARA LOS PRIVILEGIOS*/
+    List<Privilegio> listarPrivilegios();
+    void insertarPrivilegio(Privilegio privilegio);
+    void eliminarPrivilegioLogico(int id);
+    void modificarPrivilegio(Privilegio privilegio);
 
 }

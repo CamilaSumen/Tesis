@@ -2,6 +2,7 @@ package microservice_cargo.Service;
 
 import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
+import microservice_cargo.Model.Privilegio;
 import microservice_cargo.Repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class CargoServiceImpl implements CargoService {
     @Autowired
     private CargoRepository cargoRepository;
 
+    /* IMPLEMENTACION PARA LOS CARGOS*/
     @Override
     public List<Cargo> listarCargos() {
         return cargoRepository.listarCargos();
@@ -35,7 +37,7 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarCargo(cargo);
     }
 
-
+    /* IMPLEMENTACION PARA LOS EMPLEADOS*/
 
     @Override
     public List<Empleado> listarEmpleados() {
@@ -57,7 +59,26 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarEmpleado(empleado);
     }
 
+    /* IMPLEMENTACION PARA LOS PRIVILEGIOS*/
 
+    @Override
+    public List<Privilegio> listarPrivilegios() {
+        return cargoRepository.listarPrivilegios();
+    }
 
+    @Override
+    public void insertarPrivilegio(Privilegio privilegio) {
+        cargoRepository.insertarPrivilegio(privilegio);
+    }
+
+    @Override
+    public void eliminarPrivilegioLogico(int id) {
+        cargoRepository.eliminarPrivilegioLogico(id);
+    }
+
+    @Override
+    public void modificarPrivilegio(Privilegio privilegio) {
+        cargoRepository.modificarPrivilegio(privilegio);
+    }
 
 }

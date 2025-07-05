@@ -1,6 +1,5 @@
 package microservice_cargo.Repository.Translator;
 
-import microservice_cargo.Model.Cargo;
 import microservice_cargo.Model.Empleado;
 
 import java.time.LocalDate;
