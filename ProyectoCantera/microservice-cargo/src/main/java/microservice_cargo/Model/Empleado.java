@@ -24,4 +24,6 @@ public class Empleado implements Serializable {
 
     private Integer chargeId;
     private LocalDate entryDate;
+    private Double salary;
+    private boolean stateEmployer;
 }

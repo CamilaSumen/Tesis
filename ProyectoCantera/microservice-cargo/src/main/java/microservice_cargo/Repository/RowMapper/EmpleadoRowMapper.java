@@ -28,6 +28,9 @@ public class EmpleadoRowMapper implements RowMapper<EmpleadoTranslator> {
         empleado.setChargeId(rs.getInt("nCargoId"));
         empleado.setEntryDate(rs.getDate("fechaIngreso").toLocalDate());
 
+        empleado.setSalary(rs.getDouble("nSueldo"));
+        empleado.setStateEmployer(rs.getBoolean("bactivo"));
+
         return empleado;
     }
 }

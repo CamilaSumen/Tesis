@@ -20,6 +20,9 @@ public class EmpleadoTranslator {
     private Integer chargeId;
     private LocalDate entryDate;
 
+    private Double salary;
+    private boolean stateEmployer;
+
     public void setIdEmployer(int idEmployer) {
         this.idEmployer = idEmployer;
     }
@@ -64,6 +67,13 @@ public class EmpleadoTranslator {
         this.entryDate = entryDate;
     }
 
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public void setStateEmployer(boolean stateEmployer) {
+        this.stateEmployer = stateEmployer;
+    }
 
     public Empleado toEmpleadoDTO() {
         Empleado empleado = new Empleado();
@@ -78,6 +88,8 @@ public class EmpleadoTranslator {
         empleado.setEmail(this.email);
         empleado.setChargeId(this.chargeId);
         empleado.setEntryDate(this.entryDate);
+        empleado.setSalary(this.salary);
+        empleado.setStateEmployer(this.stateEmployer);
         return empleado;
     }
 }
