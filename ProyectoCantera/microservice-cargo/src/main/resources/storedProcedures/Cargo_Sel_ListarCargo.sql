@@ -1,5 +1,5 @@
-IF OBJECT_ID('Cargo_Sel_ListarCargo') IS NOT NULL
-    DROP PROCEDURE Cargo_Sel_ListarCargo
+IF OBJECT_ID('PA_Cargo_Sel_ListarCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Sel_ListarCargo
 GO
 /*---------------------------------------------------------------------------------
 PROPÓSITO			| Lista todos los cargos sin excepcion del bEstado
@@ -8,17 +8,17 @@ FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-	EXEC Cargo_Sel_ListarCargo
+	EXEC PA_Cargo_Sel_ListarCargo
 -----------------------------------------------------------------------------------*/
 
-CREATE PROCEDURE Cargo_Sel_ListarCargo
+CREATE PROCEDURE PA_Cargo_Sel_ListarCargo
 AS
 BEGIN
 	SET NOCOUNT ON
 	BEGIN TRY
 		BEGIN TRAN
 
-			SELECT T1.nCargoId, T1.cNombreCargo, T1.cDescripcion, T1.bEstado
+			SELECT T1.nCargoId, T1.cNombreCargo, T1.cDescripcion, T1.nSueldo, T1.bEstado
 			FROM Cargo T1 WITH(NOLOCK)
 
 		COMMIT TRAN

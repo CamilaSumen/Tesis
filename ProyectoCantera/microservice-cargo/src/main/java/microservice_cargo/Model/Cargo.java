@@ -11,9 +11,10 @@ public class Cargo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int charge;
+    private int idcharge;
     private String nameCargue;
     private String descriptioncargue;
+    private double salary;
     private boolean stateCargue;
 
 }

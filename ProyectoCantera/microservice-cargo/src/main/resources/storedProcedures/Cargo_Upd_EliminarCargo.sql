@@ -1,5 +1,5 @@
-IF OBJECT_ID('Cargo_Upd_EliminarCargo') IS NOT NULL
-    DROP PROCEDURE Cargo_Upd_EliminarCargo
+IF OBJECT_ID('PA_Cargo_Upd_EliminarCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Upd_EliminarCargo
 GO
 /*---------------------------------------------------------------------------------
 PROPÓSITO			| Elimina el cargo a nivel lógico
@@ -8,10 +8,10 @@ FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-	EXEC Cargo_Upd_EliminarCargo 1
+	EXEC PA_Cargo_Upd_EliminarCargo 1
 -----------------------------------------------------------------------------------*/
 
-CREATE PROCEDURE Cargo_Upd_EliminarCargo(
+CREATE PROCEDURE PA_Cargo_Upd_EliminarCargo(
 	@nCargoId	INT
 )
 AS

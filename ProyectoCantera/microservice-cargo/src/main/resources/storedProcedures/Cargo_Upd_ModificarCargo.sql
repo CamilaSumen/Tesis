@@ -1,5 +1,5 @@
-IF OBJECT_ID('Cargo_Upd_ModificarCargo') IS NOT NULL
-    DROP PROCEDURE Cargo_Upd_ModificarCargo
+IF OBJECT_ID('PA_Cargo_Upd_ModificarCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Upd_ModificarCargo
 GO
 /*---------------------------------------------------------------------------------
 PROPÓSITO			| Actualiza el Cargo seleccionado.
@@ -8,13 +8,14 @@ FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-	EXEC Cargo_Upd_ModificarCargo 1, 'MESERO', 'HOLAS'
+	EXEC PA_Cargo_Upd_ModificarCargo 1, 'MESERO', 'HOLAS'
 --------------------------------------------------- --------------------------------*/
 
-CREATE PROCEDURE Cargo_Upd_ModificarCargo(
+CREATE PROCEDURE PA_Cargo_Upd_ModificarCargo(
 	@nCargoId		INT,
 	@cNombreCargo	VARCHAR(100),
-	@cDescripcion	VARCHAR(200)
+	@cDescripcion	VARCHAR(200),
+	@nSueldo         DECIMAL(10,2)
 )
 AS
 BEGIN
@@ -25,7 +26,8 @@ BEGIN
 			UPDATE Cargo
 			SET
 				cNombreCargo = @cNombreCargo,
-				cDescripcion = @cDescripcion
+				cDescripcion = @cDescripcion,
+				nSueldo       = @nSueldo
 			WHERE nCargoId = @nCargoId
 
 

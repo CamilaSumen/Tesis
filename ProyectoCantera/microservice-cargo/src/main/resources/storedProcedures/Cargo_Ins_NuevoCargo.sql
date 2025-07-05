@@ -1,5 +1,5 @@
-IF OBJECT_ID('Cargo_Ins_NuevoCargo') IS NOT NULL
-    DROP PROCEDURE Cargo_Ins_NuevoCargo
+IF OBJECT_ID('PA_Cargo_Ins_NuevoCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Ins_NuevoCargo
 GO
 /*---------------------------------------------------------------------------------
 PROPÓSITO			| Inserta Nuevos Cargos.
@@ -8,12 +8,13 @@ FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-	EXEC Cargo_Ins_NuevoCargo 'COCINERO', 'ENCARGADO DE LA COCINA'
+	EXEC PA_Cargo_Ins_NuevoCargo 'COCINERO', 'ENCARGADO DE LA COCINA'
 -----------------------------------------------------------------------------------*/
 
-CREATE PROCEDURE Cargo_Ins_NuevoCargo(
+CREATE PROCEDURE PA_Cargo_Ins_NuevoCargo(
 	@cNombreCargo	VARCHAR(100),
-	@cDescripcion	VARCHAR(200)
+	@cDescripcion	VARCHAR(200),
+	@nSueldo         DECIMAL(10,2)
 )
 AS
 BEGIN
@@ -21,8 +22,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRAN
 
-			INSERT INTO Cargo (cNombreCargo, cDescripcion, bEstado)
-			VALUES(@cNombreCargo, @cDescripcion, 1)
+			INSERT INTO Cargo (cNombreCargo, cDescripcion, nSueldo, bEstado)
+			VALUES(@cNombreCargo, @cDescripcion, @nSueldo, 1)
 
 
 		COMMIT TRAN

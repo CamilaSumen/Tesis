@@ -11,9 +11,10 @@ public class CargoRowMapper implements RowMapper<CargoTranslator> {
     @Override
     public CargoTranslator mapRow(ResultSet rs, int rowNum) throws SQLException {
         CargoTranslator cargo = new CargoTranslator();
-        cargo.setCharge(rs.getInt("nCargoId"));
+        cargo.setIdcharge(rs.getInt("nCargoId"));
         cargo.setNameCargue(rs.getString("cNombreCargo"));
         cargo.setDescriptionCargue(rs.getString("cDescripcion"));
+        cargo.setSalary(rs.getDouble("nSueldo"));
         cargo.setStateCargue(rs.getBoolean("bEstado"));
         return cargo;
     }

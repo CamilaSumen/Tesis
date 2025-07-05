@@ -30,7 +30,8 @@ public class CargoRepositoryImpl implements CargoRepository {
     public void insertarCargo(Cargo cargo) {
         jdbcTemplate.update(StoredProcedureC.INS_CARGONUEVO,
                 cargo.getNameCargue(),
-                cargo.getDescriptioncargue());
+                cargo.getDescriptioncargue(),
+                cargo.getSalary());
     }
 
     @Override
@@ -41,9 +42,10 @@ public class CargoRepositoryImpl implements CargoRepository {
     @Override
     public void modificarCargo(Cargo cargo) {
         jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARCARGO,
-                cargo.getCharge(),
+                cargo.getIdcharge(),
                 cargo.getNameCargue(),
-                cargo.getDescriptioncargue());
+                cargo.getDescriptioncargue(),
+                cargo.getSalary());
     }
 
 }
