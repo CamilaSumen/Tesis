@@ -1,6 +1,7 @@
 package microservice_cargo.Service;
 
 import microservice_cargo.Model.Cargo;
+import microservice_cargo.Model.Empleado;
 import microservice_cargo.Repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,30 @@ public class CargoServiceImpl implements CargoService {
     public void modificarCargo(Cargo cargo) {
         cargoRepository.modificarCargo(cargo);
     }
+
+
+
+    @Override
+    public List<Empleado> listarEmpleados() {
+        return cargoRepository.listarEmpleados();
+    }
+
+    @Override
+    public void insertarEmpleado(Empleado empleado) {
+        cargoRepository.insertarEmpleado(empleado);
+    }
+
+    @Override
+    public void eliminarEmpleadoLogico(int id) {
+        cargoRepository.eliminarEmpleadoLogico(id);
+    }
+
+    @Override
+    public void modificarEmpleado(Empleado empleado) {
+        cargoRepository.modificarEmpleado(empleado);
+    }
+
+
+
 
 }
