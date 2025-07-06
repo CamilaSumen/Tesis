@@ -56,28 +56,6 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarEmpleado(empleado);
     }
 
-    /* IMPLEMENTACION PARA LOS PRIVILEGIOS*/
-    @Override
-    public List<Privilegio> listarPrivilegios() {
-        return cargoRepository.listarPrivilegios();
-    }
-
-    @Override
-    public void insertarPrivilegio(Privilegio privilegio) {
-        cargoRepository.insertarPrivilegio(privilegio);
-    }
-
-    @Override
-    public void eliminarPrivilegioLogico(int id) {
-        cargoRepository.eliminarPrivilegioLogico(id);
-    }
-
-    @Override
-    public void modificarPrivilegio(Privilegio privilegio) {
-        cargoRepository.modificarPrivilegio(privilegio);
-    }
-
-
     /* IMPLEMENTACION PARA LOS TURNOS*/
     @Override
     public List<Usuario> listarUsuarios() {

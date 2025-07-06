@@ -19,13 +19,6 @@ public interface CargoService {
     void modificarEmpleado(Empleado empleado);
 
 
-    /*SERVICES DE LOS EMPLEADOS*/
-    List<Privilegio> listarPrivilegios();
-    void insertarPrivilegio(Privilegio privilegio);
-    void eliminarPrivilegioLogico(int id);
-    void modificarPrivilegio(Privilegio privilegio);
-
-
     /*SERVICES DE LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);

@@ -18,12 +18,6 @@ public interface CargoRepository {
     void eliminarEmpleadoLogico(int id);
     void modificarEmpleado(Empleado empleado);
 
-    /*REPOSITPRY PARA LOS PRIVILEGIOS*/
-    List<Privilegio> listarPrivilegios();
-    void insertarPrivilegio(Privilegio privilegio);
-    void eliminarPrivilegioLogico(int id);
-    void modificarPrivilegio(Privilegio privilegio);
-
     /*REPOSITPRY PARA LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);
