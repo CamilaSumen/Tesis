@@ -14,6 +14,7 @@
         <module name="microservice-privilegio" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
+        <module name="microservice-empleado" />
         <module name="microservice-configServer" />
         <module name="microservice-cargo" />
         <module name="microservice-eureka" />
@@ -36,6 +37,7 @@
       <module name="microservice-categoria" options="-parameters" />
       <module name="microservice-configServer" options="-parameters" />
       <module name="microservice-confiteria" options="-parameters" />
+      <module name="microservice-empleado" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />

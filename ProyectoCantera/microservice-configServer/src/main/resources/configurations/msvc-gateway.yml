@@ -47,3 +47,7 @@ spring:
           uri: lb://msvc-privilegio
           predicates:
             - Path=/api/privilegio/**
+        - id: empleado
+          uri: lb://msvc-empleado
+          predicates:
+            - Path=/api/empleado/**
