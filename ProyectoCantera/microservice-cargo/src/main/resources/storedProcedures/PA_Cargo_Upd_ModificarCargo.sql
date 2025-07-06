@@ -1,43 +1,36 @@
-IF OBJECT_ID('PA_Empleado_Sel_Listar') IS NOT NULL
-    DROP PROCEDURE PA_Empleado_Sel_Listar
+IF OBJECT_ID('PA_Cargo_Upd_ModificarCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Upd_ModificarCargo
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO			| Lista todos los empleados activos con sus datos.
+PROPÓSITO			| Actualiza el Cargo seleccionado.
 AUTOR				| Jorge Bonifaz
-FECHA DE CREACIÓN	| 2025-07-05
+FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-EXEC PA_Empleado_Sel_Listar
------------------------------------------------------------------------------------*/
+	EXEC PA_Cargo_Upd_ModificarCargo 1, 'MESERO', 'HOLAS'
+--------------------------------------------------- --------------------------------*/
 
-CREATE PROCEDURE PA_Empleado_Sel_Listar
+CREATE PROCEDURE PA_Cargo_Upd_ModificarCargo(
+	@nCargoId		INT,
+	@cNombreCargo	VARCHAR(100),
+	@cDescripcion	VARCHAR(200),
+	@nSueldo         DECIMAL(10,2)
+)
 AS
 BEGIN
 	SET NOCOUNT ON
 	BEGIN TRY
 		BEGIN TRAN
 
-			SELECT
-				e.nEmpleadoId,
-				p.nPersonaId,
-				p.cNombres,
-				p.cApePaterno,
-				p.cApeMaterno,
-				p.cDni,
-				p.cCorreo,
-				p.cTelefono,
-				p.dFechaNacimiento,
-				p.cDireccion,
-				e.nCargoId,
-				c.cNombreCargo,
-				e.fechaIngreso,
-				c.nSueldo,
-				e.bactivo
-			FROM Empleado e WITH(NOLOCK)
-			INNER JOIN Persona p WITH(NOLOCK) ON e.nPersonaId = p.nPersonaId
-			INNER JOIN Cargo c WITH(NOLOCK) ON e.nCargoId = c.nCargoId
-			--WHERE e.bactivo = 1
+			UPDATE Cargo
+			SET
+				cNombreCargo = @cNombreCargo,
+				cDescripcion = @cDescripcion,
+				nSueldo       = @nSueldo
+			WHERE nCargoId = @nCargoId
+
+
 		COMMIT TRAN
 	END TRY
 	BEGIN CATCH

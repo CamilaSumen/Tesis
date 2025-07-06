@@ -1,9 +1,9 @@
 package microservice_cargo.Repository;
 
-import microservice_cargo.Model.*;
-import microservice_cargo.Repository.RowMapper.*;
+import microservice_cargo.Model.Cargo;
+import microservice_cargo.Repository.RowMapper.CargoRowMapper;
 import microservice_cargo.Repository.StoredProcedure.StoredProcedureC;
-import microservice_cargo.Repository.Translator.*;
+import microservice_cargo.Repository.Translator.CargoTranslator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -45,6 +45,7 @@ public class CargoRepositoryImpl implements CargoRepository {
                 cargo.getIdcharge(),
                 cargo.getNameCargue(),
                 cargo.getDescriptioncargue(),
-                cargo.getSalary());
+                cargo.getSalary(),
+                cargo.isStateCargue());
     }
 }
