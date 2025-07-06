@@ -17,7 +17,6 @@ public class CargoRepositoryImpl implements CargoRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    /*IMPLEMENTACION PARA LOS CARGOS*/
     @Override
     public List<Cargo> listarCargos() {
         String sql = StoredProcedureC.SEL_CARGO;
@@ -47,40 +46,5 @@ public class CargoRepositoryImpl implements CargoRepository {
                 cargo.getNameCargue(),
                 cargo.getDescriptioncargue(),
                 cargo.getSalary());
-    }
-
-    /*IMPLEMENTACION PARA LOS USUARIOS*/
-    @Override
-    public List<Usuario> listarUsuarios() {
-        String sql = StoredProcedureC.SEL_USUARIO;
-        List<UsuarioTranslator> lista = jdbcTemplate.query(sql, new UsuarioRowMapper());
-        return lista.stream()
-                .map(UsuarioTranslator::toUsuarioDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void insertarUsuario(Usuario usuario) {
-        jdbcTemplate.update(StoredProcedureC.INS_USUARIONUEVO,
-                usuario.getUsername(),
-                usuario.getPassword(),
-                usuario.getPrivilegeId(),
-                usuario.getShiftId(),
-                usuario.getEmployeeId());
-    }
-
-    @Override
-    public void eliminarUsuarioLogico(int id) {
-        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARTUSUARIOLOGICO, id);
-    }
-
-    @Override
-    public void modificarUsuario(Usuario usuario) {
-        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARUSUARIO,
-                usuario.getUserId(),
-                usuario.getUsername(),
-                usuario.getPassword(),
-                usuario.getPrivilegeId(),
-                usuario.getShiftId());
     }
 }

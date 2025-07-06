@@ -14,7 +14,6 @@ public class CargoServiceImpl implements CargoService {
     @Autowired
     private CargoRepository cargoRepository;
 
-    /* IMPLEMENTACION PARA LOS CARGOS*/
     @Override
     public List<Cargo> listarCargos() {
         return cargoRepository.listarCargos();
@@ -33,27 +32,6 @@ public class CargoServiceImpl implements CargoService {
     @Override
     public void modificarCargo(Cargo cargo) {
         cargoRepository.modificarCargo(cargo);
-    }
-
-    /* IMPLEMENTACION PARA LOS TURNOS*/
-    @Override
-    public List<Usuario> listarUsuarios() {
-        return cargoRepository.listarUsuarios();
-    }
-
-    @Override
-    public void insertarUsuario(Usuario usuario) {
-        cargoRepository.insertarUsuario(usuario);
-    }
-
-    @Override
-    public void eliminarUsuarioLogico(int id) {
-        cargoRepository.eliminarUsuarioLogico(id);
-    }
-
-    @Override
-    public void modificarUsuario(Usuario usuario) {
-        cargoRepository.modificarUsuario(usuario);
     }
 
 }
