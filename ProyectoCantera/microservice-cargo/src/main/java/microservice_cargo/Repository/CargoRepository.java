@@ -12,12 +12,6 @@ public interface CargoRepository {
     void eliminarCargoLogico(int id);
     void modificarCargo(Cargo cargo);
 
-    /*REPOSITPRY PARA LOS EMPLEADOS*/
-    List<Empleado> listarEmpleados();
-    void insertarEmpleado(Empleado empleado);
-    void eliminarEmpleadoLogico(int id);
-    void modificarEmpleado(Empleado empleado);
-
     /*REPOSITPRY PARA LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);

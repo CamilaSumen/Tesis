@@ -49,52 +49,6 @@ public class CargoRepositoryImpl implements CargoRepository {
                 cargo.getSalary());
     }
 
-    /*IMPLEMENTACION PARA LOS EMPLEADOS*/
-    @Override
-    public List<Empleado> listarEmpleados() {
-        String sql = StoredProcedureC.SEL_EMPLEADO;
-        List<EmpleadoTranslator> lista = jdbcTemplate.query(sql, new EmpleadoRowMapper());
-        return lista.stream()
-                .map(EmpleadoTranslator::toEmpleadoDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void insertarEmpleado(Empleado empleado) {
-        jdbcTemplate.update(StoredProcedureC.INS_EMPLEADONUEVO,
-                empleado.getFirstName(),
-                empleado.getLastNameFather(),
-                empleado.getLastNameMother(),
-                empleado.getBirthDate(),
-                empleado.getAddress(),
-                empleado.getPhone(),
-                empleado.getDni(),
-                empleado.getEmail(),
-                empleado.getChargeId(),
-                empleado.getEntryDate());
-    }
-
-    @Override
-    public void eliminarEmpleadoLogico(int id) {
-        jdbcTemplate.update(StoredProcedureC.UPD_ELIMAREMPLEADOLOGICO, id);
-    }
-
-    @Override
-    public void modificarEmpleado(Empleado empleado) {
-        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICAREMPLEADO,
-                empleado.getIdEmployer(),
-                empleado.getFirstName(),
-                empleado.getLastNameFather(),
-                empleado.getLastNameMother(),
-                empleado.getBirthDate(),
-                empleado.getAddress(),
-                empleado.getPhone(),
-                empleado.getDni(),
-                empleado.getEmail(),
-                empleado.getChargeId());
-    }
-
-
     /*IMPLEMENTACION PARA LOS USUARIOS*/
     @Override
     public List<Usuario> listarUsuarios() {

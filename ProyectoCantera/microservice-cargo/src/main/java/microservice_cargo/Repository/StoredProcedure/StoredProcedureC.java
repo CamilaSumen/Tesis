@@ -7,12 +7,6 @@ public class StoredProcedureC {
     public static final String UPD_ELIMARCARGOLOGICO = "{call PA_Cargo_Upd_EliminarCargo(?)}";
     public static final String UPD_MODIFICARCARGO = "{call PA_Cargo_Upd_ModificarCargo(?,?,?,?)}";
 
-    /*PA'S PARA LOS EMPLEADOS*/
-    public static final String SEL_EMPLEADO= "{call PA_Empleado_Sel_Listar}";
-    public static final String INS_EMPLEADONUEVO = "{call PA_Empleado_Ins_Nuevo(?,?,?,?,?,?,?,?,?,?)}";
-    public static final String UPD_ELIMAREMPLEADOLOGICO = "{call PA_Empleado_Upd_Eliminar(?)}";
-    public static final String UPD_MODIFICAREMPLEADO = "{call PA_Empleado_Upd_Modificar(?,?,?,?,?,?,?,?,?,?)}";
-
     /*PA'S PARA LOS USUARIOS*/
     public static final String SEL_USUARIO= "{call PA_Usuario_ListarUsuario}";
     public static final String INS_USUARIONUEVO = "{call PA_Usuario_Ins_NuevoUsuario(?,?,?,?,?)}";

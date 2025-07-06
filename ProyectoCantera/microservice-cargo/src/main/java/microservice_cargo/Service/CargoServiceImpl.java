@@ -35,27 +35,6 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarCargo(cargo);
     }
 
-    /* IMPLEMENTACION PARA LOS EMPLEADOS*/
-    @Override
-    public List<Empleado> listarEmpleados() {
-        return cargoRepository.listarEmpleados();
-    }
-
-    @Override
-    public void insertarEmpleado(Empleado empleado) {
-        cargoRepository.insertarEmpleado(empleado);
-    }
-
-    @Override
-    public void eliminarEmpleadoLogico(int id) {
-        cargoRepository.eliminarEmpleadoLogico(id);
-    }
-
-    @Override
-    public void modificarEmpleado(Empleado empleado) {
-        cargoRepository.modificarEmpleado(empleado);
-    }
-
     /* IMPLEMENTACION PARA LOS TURNOS*/
     @Override
     public List<Usuario> listarUsuarios() {

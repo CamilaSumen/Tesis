@@ -12,13 +12,6 @@ public interface CargoService {
     void modificarCargo(Cargo cargo);
 
 
-    /*SERVICES DE LOS EMPLEADOS*/
-    List<Empleado> listarEmpleados();
-    void insertarEmpleado(Empleado empleado);
-    void eliminarEmpleadoLogico(int id);
-    void modificarEmpleado(Empleado empleado);
-
-
     /*SERVICES DE LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);
