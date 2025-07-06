@@ -16,24 +16,24 @@ public class TurnoController {
     public TurnoController(CargoService cargoService) {
         this.cargoService = cargoService;
     }
-
-    @GetMapping("/turno/listar")
-    public List<Turno> listar() {
-        return cargoService.listarTurnos();
-    }
-
-    @PostMapping("/turno/insertar")
-    public void insertar(@RequestBody Turno turno) {
-        cargoService.insertarTurno(turno);
-    }
-
-    @PutMapping("/turno/modificar")
-    public void modificar(@RequestBody Turno turno) {
-        cargoService.modificarTurno(turno);
-    }
-
-    @DeleteMapping("/turno/eliminar/{id}")
-    public void eliminar(@PathVariable int id) {
-        cargoService.eliminarTurnoLogico(id);
-    }
+//
+//    @GetMapping("/turno/listar")
+//    public List<Turno> listar() {
+//        return cargoService.listarTurnos();
+//    }
+//
+//    @PostMapping("/turno/insertar")
+//    public void insertar(@RequestBody Turno turno) {
+//        cargoService.insertarTurno(turno);
+//    }
+//
+//    @PutMapping("/turno/modificar")
+//    public void modificar(@RequestBody Turno turno) {
+//        cargoService.modificarTurno(turno);
+//    }
+//
+//    @DeleteMapping("/turno/eliminar/{id}")
+//    public void eliminar(@PathVariable int id) {
+//        cargoService.eliminarTurnoLogico(id);
+//    }
 }

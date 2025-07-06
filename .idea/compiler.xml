@@ -11,8 +11,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
-        <module name="microservice-configServer" />
         <module name="microservice-producto" />
+        <module name="microservice-turno" />
+        <module name="microservice-configServer" />
         <module name="microservice-cargo" />
         <module name="microservice-eureka" />
         <module name="microservice-categoria" />
@@ -39,6 +40,7 @@
       <module name="microservice-peliculas" options="-parameters" />
       <module name="microservice-producto" options="-parameters" />
       <module name="microservice-sedes" options="-parameters" />
+      <module name="microservice-turno" options="-parameters" />
       <module name="microservice-ventas" options="-parameters" />
     </option>
   </component>

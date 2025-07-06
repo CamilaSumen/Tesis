@@ -16,23 +16,23 @@ public class UsuarioController {
         this.cargoService = cargoService;
     }
 
-    @GetMapping("/usuario/listar")
-    public List<Usuario> listar() {
-        return cargoService.listarUsuarios();
-    }
-
-    @PostMapping("/usuario/insertar")
-    public void insertar(@RequestBody Usuario usuario) {
-        cargoService.insertarUsuario(usuario);
-    }
-
-    @PutMapping("/usuario/modificar")
-    public void modificar(@RequestBody Usuario usuario) {
-        cargoService.modificarUsuario(usuario);
-    }
-
-    @DeleteMapping("/usuario/eliminar/{id}")
-    public void eliminar(@PathVariable int id) {
-        cargoService.eliminarUsuarioLogico(id);
-    }
+//    @GetMapping("/usuario/listar")
+//    public List<Usuario> listar() {
+//        return cargoService.listarUsuarios();
+//    }
+//
+//    @PostMapping("/usuario/insertar")
+//    public void insertar(@RequestBody Usuario usuario) {
+//        cargoService.insertarUsuario(usuario);
+//    }
+//
+//    @PutMapping("/usuario/modificar")
+//    public void modificar(@RequestBody Usuario usuario) {
+//        cargoService.modificarUsuario(usuario);
+//    }
+//
+//    @DeleteMapping("/usuario/eliminar/{id}")
+//    public void eliminar(@PathVariable int id) {
+//        cargoService.eliminarUsuarioLogico(id);
+//    }
 }

@@ -24,6 +24,7 @@
     <module>microservice-categoria</module>
     <module>microservice-cargo</module>
     <module>microservice-producto</module>
+    <module>microservice-turno</module>
   </modules>
 
   <properties>

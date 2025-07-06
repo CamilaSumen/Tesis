@@ -17,24 +17,24 @@ public class EmpleadoController {
     public EmpleadoController(CargoService cargoService) {
         this.cargoService = cargoService;
     }
-
-    @GetMapping("/empleado/listar")
-    public List<Empleado> listar() {
-        return cargoService.listarEmpleados();
-    }
-
-    @PostMapping("/empleado/insertar")
-    public void insertar(@RequestBody Empleado empleado) {
-        cargoService.insertarEmpleado(empleado);
-    }
-
-    @PutMapping("/empleado/modificar")
-    public void modificar(@RequestBody Empleado empleado) {
-        cargoService.modificarEmpleado(empleado);
-    }
-
-    @DeleteMapping("/empleado/eliminar/{id}")
-    public void eliminar(@PathVariable int id) {
-        cargoService.eliminarEmpleadoLogico(id);
-    }
+//
+//    @GetMapping("/empleado/listar")
+//    public List<Empleado> listar() {
+//        return cargoService.listarEmpleados();
+//    }
+//
+//    @PostMapping("/empleado/insertar")
+//    public void insertar(@RequestBody Empleado empleado) {
+//        cargoService.insertarEmpleado(empleado);
+//    }
+//
+//    @PutMapping("/empleado/modificar")
+//    public void modificar(@RequestBody Empleado empleado) {
+//        cargoService.modificarEmpleado(empleado);
+//    }
+//
+//    @DeleteMapping("/empleado/eliminar/{id}")
+//    public void eliminar(@PathVariable int id) {
+//        cargoService.eliminarEmpleadoLogico(id);
+//    }
 }

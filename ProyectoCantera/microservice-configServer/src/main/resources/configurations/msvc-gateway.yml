@@ -38,4 +38,8 @@ spring:
         - id: cargo
           uri: lb://msvc-cargo
           predicates:
-            - Path=/api/rrhh/**
+            - Path=/api/cargo/**
+        - id: turno
+          uri: lb://msvc-turno
+          predicates:
+            - Path=/api/turno/**

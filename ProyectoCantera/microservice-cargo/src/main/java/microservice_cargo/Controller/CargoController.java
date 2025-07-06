@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/rrhh")
+@RequestMapping("/api/cargo")
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class CargoController {
 
@@ -17,24 +17,23 @@ public class CargoController {
         this.cargoService = cargoService;
     }
 
-    @GetMapping("/cargo/listar")
+    @GetMapping("/listar")
     public List<Cargo> listar() {
         return cargoService.listarCargos();
     }
 
-    @PostMapping("/cargo/insertar")
+    @PostMapping("/insertar")
     public void insertar(@RequestBody Cargo cargo) {
         cargoService.insertarCargo(cargo);
     }
 
-    @PutMapping("/cargo/modificar")
+    @PutMapping("/modificar")
     public void modificar(@RequestBody Cargo cargo) {
         cargoService.modificarCargo(cargo);
     }
 
-    @DeleteMapping("/cargo/eliminar/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable int id) {
         cargoService.eliminarCargoLogico(id);
     }
-
 }
