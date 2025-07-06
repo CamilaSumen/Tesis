@@ -27,6 +27,7 @@
     <module>microservice-turno</module>
     <module>microservice-privilegio</module>
     <module>microservice-empleado</module>
+    <module>microservice-usuario</module>
   </modules>
 
   <properties>

@@ -12,6 +12,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
         <module name="microservice-privilegio" />
+        <module name="microservice-usuario" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
         <module name="microservice-empleado" />
@@ -45,6 +46,7 @@
       <module name="microservice-producto" options="-parameters" />
       <module name="microservice-sedes" options="-parameters" />
       <module name="microservice-turno" options="-parameters" />
+      <module name="microservice-usuario" options="-parameters" />
       <module name="microservice-ventas" options="-parameters" />
     </option>
   </component>
