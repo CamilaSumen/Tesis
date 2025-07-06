@@ -128,39 +128,6 @@ public class CargoRepositoryImpl implements CargoRepository {
     }
 
 
-    /*IMPLEMENTACION PARA LOS TURNOS*/
-    @Override
-    public List<Turno> listarTurnos() {
-        String sql = StoredProcedureC.SEL_TURNO;
-        List<TurnoTranslator> lista = jdbcTemplate.query(sql, new TurnoRowMapper());
-        return lista.stream()
-                .map(TurnoTranslator::toTurnoDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void insertarTurno(Turno turno) {
-        jdbcTemplate.update(StoredProcedureC.INS_TURNONUEVO,
-                turno.getNameshift(),
-                turno.getStartTime(),
-                turno.getEndTime());
-    }
-
-    @Override
-    public void eliminarTurnoLogico(int id) {
-        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARTURNOLOGICO, id);
-    }
-
-    @Override
-    public void modificarTurno(Turno turno) {
-        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARTURNO,
-                turno.getShiftId(),
-                turno.getNameshift(),
-                turno.getStartTime(),
-                turno.getEndTime());
-    }
-
-
     /*IMPLEMENTACION PARA LOS USUARIOS*/
     @Override
     public List<Usuario> listarUsuarios() {

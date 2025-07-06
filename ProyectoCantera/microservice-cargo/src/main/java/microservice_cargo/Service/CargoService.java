@@ -26,12 +26,6 @@ public interface CargoService {
     void modificarPrivilegio(Privilegio privilegio);
 
 
-    /*SERVICES DE LOS TURNOS*/
-    List<Turno> listarTurnos();
-    void insertarTurno(Turno turno);
-    void eliminarTurnoLogico(int id);
-    void modificarTurno(Turno turno);
-
     /*SERVICES DE LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);

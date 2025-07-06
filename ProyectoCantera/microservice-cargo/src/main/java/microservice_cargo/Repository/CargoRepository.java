@@ -24,12 +24,6 @@ public interface CargoRepository {
     void eliminarPrivilegioLogico(int id);
     void modificarPrivilegio(Privilegio privilegio);
 
-    /*REPOSITPRY PARA LOS TURNOS*/
-    List<Turno> listarTurnos();
-    void insertarTurno(Turno turno);
-    void eliminarTurnoLogico(int id);
-    void modificarTurno(Turno turno);
-
     /*REPOSITPRY PARA LOS USUARIOS*/
     List<Usuario> listarUsuarios();
     void insertarUsuario(Usuario usuario);

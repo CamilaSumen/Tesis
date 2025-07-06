@@ -1,6 +1,5 @@
 package microservice_cargo.Repository.Translator;
 
-import microservice_cargo.Model.Turno;
 import microservice_cargo.Model.Usuario;
 
 public class UsuarioTranslator {
