@@ -11,6 +11,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
+        <module name="microservice-privilegio" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
         <module name="microservice-configServer" />
@@ -38,6 +39,7 @@
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
+      <module name="microservice-privilegio" options="-parameters" />
       <module name="microservice-producto" options="-parameters" />
       <module name="microservice-sedes" options="-parameters" />
       <module name="microservice-turno" options="-parameters" />

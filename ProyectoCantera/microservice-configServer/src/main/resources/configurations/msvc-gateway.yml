@@ -43,3 +43,7 @@ spring:
           uri: lb://msvc-turno
           predicates:
             - Path=/api/turno/**
+        - id: privilegio
+          uri: lb://msvc-privilegio
+          predicates:
+            - Path=/api/privilegio/**
