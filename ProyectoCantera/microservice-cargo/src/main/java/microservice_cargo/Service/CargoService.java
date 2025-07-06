@@ -1,8 +1,5 @@
 package microservice_cargo.Service;
-import microservice_cargo.Model.Cargo;
-import microservice_cargo.Model.Empleado;
-import microservice_cargo.Model.Privilegio;
-import microservice_cargo.Model.Turno;
+import microservice_cargo.Model.*;
 
 import java.util.List;
 
@@ -34,5 +31,11 @@ public interface CargoService {
     void insertarTurno(Turno turno);
     void eliminarTurnoLogico(int id);
     void modificarTurno(Turno turno);
+
+    /*SERVICES DE LOS USUARIOS*/
+    List<Usuario> listarUsuarios();
+    void insertarUsuario(Usuario usuario);
+    void eliminarUsuarioLogico(int id);
+    void modificarUsuario(Usuario usuario);
 
 }

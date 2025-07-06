@@ -1,9 +1,6 @@
 package microservice_cargo.Service;
 
-import microservice_cargo.Model.Cargo;
-import microservice_cargo.Model.Empleado;
-import microservice_cargo.Model.Privilegio;
-import microservice_cargo.Model.Turno;
+import microservice_cargo.Model.*;
 import microservice_cargo.Repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +36,6 @@ public class CargoServiceImpl implements CargoService {
     }
 
     /* IMPLEMENTACION PARA LOS EMPLEADOS*/
-
     @Override
     public List<Empleado> listarEmpleados() {
         return cargoRepository.listarEmpleados();
@@ -61,7 +57,6 @@ public class CargoServiceImpl implements CargoService {
     }
 
     /* IMPLEMENTACION PARA LOS PRIVILEGIOS*/
-
     @Override
     public List<Privilegio> listarPrivilegios() {
         return cargoRepository.listarPrivilegios();
@@ -82,9 +77,7 @@ public class CargoServiceImpl implements CargoService {
         cargoRepository.modificarPrivilegio(privilegio);
     }
 
-
     /* IMPLEMENTACION PARA LOS TURNOS*/
-
     @Override
     public List<Turno> listarTurnos() {
         return cargoRepository.listarTurnos();
@@ -104,4 +97,27 @@ public class CargoServiceImpl implements CargoService {
     public void modificarTurno(Turno turno) {
         cargoRepository.modificarTurno(turno);
     }
+
+
+    /* IMPLEMENTACION PARA LOS TURNOS*/
+    @Override
+    public List<Usuario> listarUsuarios() {
+        return cargoRepository.listarUsuarios();
+    }
+
+    @Override
+    public void insertarUsuario(Usuario usuario) {
+        cargoRepository.insertarUsuario(usuario);
+    }
+
+    @Override
+    public void eliminarUsuarioLogico(int id) {
+        cargoRepository.eliminarUsuarioLogico(id);
+    }
+
+    @Override
+    public void modificarUsuario(Usuario usuario) {
+        cargoRepository.modificarUsuario(usuario);
+    }
+
 }

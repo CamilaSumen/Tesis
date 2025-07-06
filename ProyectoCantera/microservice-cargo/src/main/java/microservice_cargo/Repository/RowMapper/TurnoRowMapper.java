@@ -1,12 +1,10 @@
 package microservice_cargo.Repository.RowMapper;
-import microservice_cargo.Repository.Translator.PrivilegioTranslator;
 
 import microservice_cargo.Repository.Translator.TurnoTranslator;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 public class TurnoRowMapper implements RowMapper<TurnoTranslator> {
 

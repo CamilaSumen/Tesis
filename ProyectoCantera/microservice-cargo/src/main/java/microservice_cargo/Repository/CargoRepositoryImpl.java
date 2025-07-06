@@ -1,18 +1,9 @@
 package microservice_cargo.Repository;
 
-import microservice_cargo.Model.Cargo;
-import microservice_cargo.Model.Empleado;
-import microservice_cargo.Model.Privilegio;
-import microservice_cargo.Model.Turno;
-import microservice_cargo.Repository.RowMapper.CargoRowMapper;
-import microservice_cargo.Repository.RowMapper.EmpleadoRowMapper;
-import microservice_cargo.Repository.RowMapper.PrivilegioRowMapper;
-import microservice_cargo.Repository.RowMapper.TurnoRowMapper;
+import microservice_cargo.Model.*;
+import microservice_cargo.Repository.RowMapper.*;
 import microservice_cargo.Repository.StoredProcedure.StoredProcedureC;
-import microservice_cargo.Repository.Translator.CargoTranslator;
-import microservice_cargo.Repository.Translator.EmpleadoTranslator;
-import microservice_cargo.Repository.Translator.PrivilegioTranslator;
-import microservice_cargo.Repository.Translator.TurnoTranslator;
+import microservice_cargo.Repository.Translator.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -59,7 +50,6 @@ public class CargoRepositoryImpl implements CargoRepository {
     }
 
     /*IMPLEMENTACION PARA LOS EMPLEADOS*/
-
     @Override
     public List<Empleado> listarEmpleados() {
         String sql = StoredProcedureC.SEL_EMPLEADO;
@@ -106,7 +96,6 @@ public class CargoRepositoryImpl implements CargoRepository {
 
 
     /*IMPLEMENTACION PARA LOS PRIVILEGIOS*/
-
     @Override
     public List<Privilegio> listarPrivilegios() {
         String sql = StoredProcedureC.SEL_PRIVILEGIO;
@@ -140,7 +129,6 @@ public class CargoRepositoryImpl implements CargoRepository {
 
 
     /*IMPLEMENTACION PARA LOS TURNOS*/
-
     @Override
     public List<Turno> listarTurnos() {
         String sql = StoredProcedureC.SEL_TURNO;
@@ -172,4 +160,39 @@ public class CargoRepositoryImpl implements CargoRepository {
                 turno.getEndTime());
     }
 
+
+    /*IMPLEMENTACION PARA LOS USUARIOS*/
+    @Override
+    public List<Usuario> listarUsuarios() {
+        String sql = StoredProcedureC.SEL_USUARIO;
+        List<UsuarioTranslator> lista = jdbcTemplate.query(sql, new UsuarioRowMapper());
+        return lista.stream()
+                .map(UsuarioTranslator::toUsuarioDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void insertarUsuario(Usuario usuario) {
+        jdbcTemplate.update(StoredProcedureC.INS_USUARIONUEVO,
+                usuario.getUsername(),
+                usuario.getPassword(),
+                usuario.getPrivilegeId(),
+                usuario.getShiftId(),
+                usuario.getEmployeeId());
+    }
+
+    @Override
+    public void eliminarUsuarioLogico(int id) {
+        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARTUSUARIOLOGICO, id);
+    }
+
+    @Override
+    public void modificarUsuario(Usuario usuario) {
+        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARUSUARIO,
+                usuario.getUserId(),
+                usuario.getUsername(),
+                usuario.getPassword(),
+                usuario.getPrivilegeId(),
+                usuario.getShiftId());
+    }
 }

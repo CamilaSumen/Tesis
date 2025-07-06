@@ -1,6 +1,5 @@
 package microservice_cargo.Controller;
 
-import microservice_cargo.Model.Privilegio;
 import microservice_cargo.Model.Turno;
 import microservice_cargo.Service.CargoService;
 import org.springframework.web.bind.annotation.*;

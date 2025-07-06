@@ -24,4 +24,11 @@ public class StoredProcedureC {
     public static final String INS_TURNONUEVO = "{call PA_Turno_Ins_Nuevo(?,?,?)}";
     public static final String UPD_ELIMARTURNOLOGICO = "{call PA_Turno_Upd_Eliminar(?)}";
     public static final String UPD_MODIFICARTURNO = "{call PA_Turno_Upd_Modificar(?,?,?,?)}";
+
+    /*PA'S PARA LOS USUARIOS*/
+    public static final String SEL_USUARIO= "{call PA_Usuario_ListarUsuario}";
+    public static final String INS_USUARIONUEVO = "{call PA_Usuario_Ins_NuevoUsuario(?,?,?,?,?)}";
+    public static final String UPD_ELIMARTUSUARIOLOGICO = "{call PA_Usuario_Upd_Eliminar(?)}";
+    public static final String UPD_MODIFICARUSUARIO = "{call PA_Usuario_Upd_Modificar(?,?,?,?,?)}";
+
 }
