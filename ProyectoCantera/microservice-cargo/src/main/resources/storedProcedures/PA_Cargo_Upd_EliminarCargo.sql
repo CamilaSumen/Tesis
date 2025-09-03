@@ -12,7 +12,7 @@ EJEMPLO:
 -----------------------------------------------------------------------------------*/
 
 CREATE PROCEDURE PA_Cargo_Upd_EliminarCargo(
-	@nCargoId	INT
+	@nCargoId		INT
 )
 AS
 BEGIN

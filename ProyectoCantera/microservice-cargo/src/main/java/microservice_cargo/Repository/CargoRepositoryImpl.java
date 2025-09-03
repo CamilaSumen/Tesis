@@ -45,7 +45,6 @@ public class CargoRepositoryImpl implements CargoRepository {
                 cargo.getIdcharge(),
                 cargo.getNameCargue(),
                 cargo.getDescriptioncargue(),
-                cargo.getSalary(),
-                cargo.isStateCargue());
+                cargo.getSalary());
     }
 }

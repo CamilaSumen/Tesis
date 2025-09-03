@@ -10,11 +10,10 @@ EJEMPLO:
 	EXEC PA_Turno_Upd_Modificar 1, 'Tarde', '14:00', '22:00'
 -----------------------------------------------------------------------------------*/
 CREATE PROCEDURE PA_Turno_Upd_Modificar (
-	@nTurnoId		INT,
-	@cNombre		VARCHAR(50),
-	@tHoraInicio	TIME,
-	@tHoraFin		TIME,
-	@bEstado		BIT
+	@nTurnoId			INT,
+	@cNombre			VARCHAR(50),
+	@tHoraInicio		TIME,
+	@tHoraFin			TIME
 )
 AS
 BEGIN
@@ -26,8 +25,7 @@ BEGIN
 			UPDATE Turno
 			SET cNombre = @cNombre,
 				tHoraInicio = @tHoraInicio,
-				tHoraFin = @tHoraFin,
-				bEstado = @bEstado
+				tHoraFin = @tHoraFin
 			WHERE nTurnoId = @nTurnoId
 
 

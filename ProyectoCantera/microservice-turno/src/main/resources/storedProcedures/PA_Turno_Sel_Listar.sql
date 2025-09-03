@@ -17,13 +17,12 @@ BEGIN
 		BEGIN TRAN
 
 			SELECT
-				nTurnoId,
-				cNombre,
-				tHoraInicio,
-				tHoraFin,
-				bEstado
-			FROM Turno WITH(NOLOCK)
-			--WHERE bEstado = 1
+				T1.nTurnoId,
+				T1.cNombre,
+				T1.tHoraInicio,
+				T1.tHoraFin,
+				T1.bEstado
+			FROM Turno T1 WITH(NOLOCK)
 
 
 		COMMIT TRAN

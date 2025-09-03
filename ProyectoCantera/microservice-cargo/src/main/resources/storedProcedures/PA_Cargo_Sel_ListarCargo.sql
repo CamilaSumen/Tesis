@@ -1,25 +1,30 @@
-IF OBJECT_ID('PA_Cargo_Sel_ListarCargo') IS NOT NULL
-    DROP PROCEDURE PA_Cargo_Sel_ListarCargo
+IF OBJECT_ID('PA_Cargo_Ins_NuevoCargo') IS NOT NULL
+    DROP PROCEDURE PA_Cargo_Ins_NuevoCargo
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO			| Lista todos los cargos sin excepcion del bEstado
+PROPÓSITO			| Inserta Nuevos Cargos.
 AUTOR				| Jorge Bonifaz
 FECHA DE CREACIÓN	| 2025-04-22
 -----------------------------------------------------------------------------------
 
 EJEMPLO:
-	EXEC PA_Cargo_Sel_ListarCargo
+	EXEC PA_Cargo_Ins_NuevoCargo 'COCINERO', 'ENCARGADO DE LA COCINA'
 -----------------------------------------------------------------------------------*/
 
-CREATE PROCEDURE PA_Cargo_Sel_ListarCargo
+CREATE PROCEDURE PA_Cargo_Ins_NuevoCargo(
+	@cNombreCargo	VARCHAR(100),
+	@cDescripcion	VARCHAR(200),
+	@nSueldo         DECIMAL(10,2)
+)
 AS
 BEGIN
 	SET NOCOUNT ON
 	BEGIN TRY
 		BEGIN TRAN
 
-			SELECT T1.nCargoId, T1.cNombreCargo, T1.cDescripcion, T1.nSueldo, T1.bEstado
-			FROM Cargo T1 WITH(NOLOCK)
+			INSERT INTO Cargo (cNombreCargo, cDescripcion, nSueldo)
+			VALUES(@cNombreCargo, @cDescripcion, @nSueldo)
+
 
 		COMMIT TRAN
 	END TRY

@@ -12,10 +12,10 @@ EJEMPLO:
 --------------------------------------------------- --------------------------------*/
 
 CREATE PROCEDURE PA_Cargo_Upd_ModificarCargo(
-	@nCargoId		INT,
-	@cNombreCargo	VARCHAR(100),
-	@cDescripcion	VARCHAR(200),
-	@nSueldo         DECIMAL(10,2)
+	@nCargoId			INT,
+	@cNombreCargo		VARCHAR(100),
+	@cDescripcion		VARCHAR(200),
+	@nSueldo			DECIMAL(10,2)
 )
 AS
 BEGIN

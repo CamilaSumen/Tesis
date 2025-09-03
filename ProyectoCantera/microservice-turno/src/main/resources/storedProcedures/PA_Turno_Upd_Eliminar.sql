@@ -10,7 +10,7 @@ EJEMPLO:
 	EXEC PA_Turno_Upd_Eliminar 1
 -----------------------------------------------------------------------------------*/
 CREATE PROCEDURE PA_Turno_Upd_Eliminar (
-	@nTurnoId INT
+	@nTurnoId		INT
 )
 AS
 BEGIN

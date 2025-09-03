@@ -15,6 +15,6 @@ public class Cargo implements Serializable {
     private String nameCargue;
     private String descriptioncargue;
     private Double salary;
-    private boolean stateCargue;
+    private Boolean stateCargue;
 
 }

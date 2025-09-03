@@ -21,8 +21,8 @@ BEGIN
 		BEGIN TRAN
 
 
-			INSERT INTO Turno (cNombre, tHoraInicio, tHoraFin, bEstado)
-			VALUES (@cNombre, @tHoraInicio, @tHoraFin, 1)
+			INSERT INTO Turno (cNombre, tHoraInicio, tHoraFin)
+			VALUES (@cNombre, @tHoraInicio, @tHoraFin)
 
 
 		COMMIT TRAN

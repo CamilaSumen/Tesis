@@ -22,8 +22,8 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRAN
 
-			INSERT INTO Cargo (cNombreCargo, cDescripcion, nSueldo, bEstado)
-			VALUES(@cNombreCargo, @cDescripcion, @nSueldo, 1)
+			INSERT INTO Cargo (cNombreCargo, cDescripcion, nSueldo)
+			VALUES(@cNombreCargo, @cDescripcion, @nSueldo)
 
 
 		COMMIT TRAN

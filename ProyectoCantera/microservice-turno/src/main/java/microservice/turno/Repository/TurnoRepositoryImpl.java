@@ -46,7 +46,6 @@ public class TurnoRepositoryImpl implements TurnoRepository {
                 turno.getShiftId(),
                 turno.getNameshift(),
                 turno.getStartTime(),
-                turno.getEndTime(),
-                turno.getStateshift());
+                turno.getEndTime());
     }
 }
