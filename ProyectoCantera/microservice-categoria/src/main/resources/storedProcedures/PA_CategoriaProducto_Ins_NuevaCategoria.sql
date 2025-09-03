@@ -1,20 +1,18 @@
-IF OBJECT_ID('PA_Turno_Upd_Modificar') IS NOT NULL
-    DROP PROCEDURE PA_Turno_Upd_Modificar
+IF OBJECT_ID('PA_CategoriaProducto_Ins_NuevaCategoria') IS NOT NULL
+    DROP PROCEDURE PA_CategoriaProducto_Ins_NuevaCategoria
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO			| Modifica los datos de un turno.
-AUTOR				| Jorge Bonifaz
-FECHA DE CREACIÓN	| 2025-07-05
+PROPÓSITO         | Inserta una nueva categoria.
+AUTOR             | Jorge Bonifaz
+FECHA DE CREACIÓN | 2025-09-03
 -----------------------------------------------------------------------------------
 EJEMPLO:
-	EXEC PA_Turno_Upd_Modificar 1, 'Tarde', '14:00', '22:00'
+EXEC PA_CategoriaProducto_Ins_NuevaCategoria 'POLLO1', 'pollos', '............'
 -----------------------------------------------------------------------------------*/
-CREATE PROCEDURE PA_Turno_Upd_Modificar (
-	@nTurnoId		INT,
-	@cNombre		VARCHAR(50),
-	@tHoraInicio	TIME,
-	@tHoraFin		TIME,
-	@bEstado		BIT
+CREATE PROCEDURE PA_CategoriaProducto_Ins_NuevaCategoria (
+    @cNombreCategoria		VARCHAR(50),
+	@cDescripcion			VARCHAR(150),
+    @bImagen				VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -22,13 +20,12 @@ BEGIN
 	BEGIN TRY
 		BEGIN TRAN
 
-
-			UPDATE Turno
-			SET cNombre = @cNombre,
-				tHoraInicio = @tHoraInicio,
-				tHoraFin = @tHoraFin,
-				bEstado = @bEstado
-			WHERE nTurnoId = @nTurnoId
+			INSERT INTO CategoriaProducto (
+				cNombreCategoria, cDescripcion, bEstado, bImagen
+			)
+			VALUES (
+				@cNombreCategoria, @cDescripcion, 1,@bImagen
+			)
 
 
 		COMMIT TRAN

@@ -1,35 +1,26 @@
-IF OBJECT_ID('PA_Turno_Upd_Modificar') IS NOT NULL
-    DROP PROCEDURE PA_Turno_Upd_Modificar
+IF OBJECT_ID('PA_CategoriaProducto_Upd_EliminarCategoria') IS NOT NULL
+    DROP PROCEDURE PA_CategoriaProducto_Upd_EliminarCategoria
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO			| Modifica los datos de un turno.
-AUTOR				| Jorge Bonifaz
-FECHA DE CREACIÓN	| 2025-07-05
+PROPÓSITO         | Eliminación lógica de la categoria (nEstado = 0).
+AUTOR             | Jorge Bonifaz
+FECHA DE CREACIÓN | 2025-07-05
 -----------------------------------------------------------------------------------
 EJEMPLO:
-	EXEC PA_Turno_Upd_Modificar 1, 'Tarde', '14:00', '22:00'
+EXEC PA_CategoriaProducto_Upd_EliminarCategoria 1
 -----------------------------------------------------------------------------------*/
-CREATE PROCEDURE PA_Turno_Upd_Modificar (
-	@nTurnoId		INT,
-	@cNombre		VARCHAR(50),
-	@tHoraInicio	TIME,
-	@tHoraFin		TIME,
-	@bEstado		BIT
+CREATE PROCEDURE PA_CategoriaProducto_Upd_EliminarCategoria (
+    @nCategoriaProductoId INT
 )
 AS
 BEGIN
-	SET NOCOUNT ON
-	BEGIN TRY
-		BEGIN TRAN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        BEGIN TRAN
 
-
-			UPDATE Turno
-			SET cNombre = @cNombre,
-				tHoraInicio = @tHoraInicio,
-				tHoraFin = @tHoraFin,
-				bEstado = @bEstado
-			WHERE nTurnoId = @nTurnoId
-
+        UPDATE CategoriaProducto
+        SET bEstado = 0
+        WHERE nCategoriaProductoId = @nCategoriaProductoId;
 
 		COMMIT TRAN
 	END TRY

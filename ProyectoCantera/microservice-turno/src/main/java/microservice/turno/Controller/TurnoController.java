@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/turno")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class TurnoController {
 
     private final TurnoService turnoService;

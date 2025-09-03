@@ -16,6 +16,7 @@ public class TurnoRepositoryImpl implements TurnoRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
     /*IMPLEMENTACION PARA LOS TURNOS*/
     @Override
     public List<Turno> listarTurnos() {
@@ -45,8 +46,7 @@ public class TurnoRepositoryImpl implements TurnoRepository {
                 turno.getShiftId(),
                 turno.getNameshift(),
                 turno.getStartTime(),
-                turno.getEndTime());
+                turno.getEndTime(),
+                turno.getStateshift());
     }
-
-
 }

@@ -33,5 +33,4 @@ public class TurnoServiceImpl implements TurnoService {
         cargoRepository.modificarTurno(turno);
     }
 
-
 }

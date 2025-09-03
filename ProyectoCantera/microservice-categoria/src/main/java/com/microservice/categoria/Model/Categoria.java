@@ -1,17 +1,20 @@
 package com.microservice.categoria.Model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Categoria {
-    private int nCategoriaProductoId;
-    @NotEmpty
-    private String cDescripcion;
-    @NotEmpty
-    private boolean bEstado;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Categoria implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Integer categoryId;
+    private String nameCategory;
+    private String descriptionCategory;
+    private String imageCategory;
+    private Boolean stateCategory;
 }

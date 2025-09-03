@@ -2,6 +2,7 @@ package com.microservice.categoria.Service;
 
 import com.microservice.categoria.Model.Categoria;
 import com.microservice.categoria.Repository.CategoriaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,35 +10,29 @@ import java.util.List;
 @Service
 public class CategoriaServiceImpl implements  CategoriaService{
 
-    private final CategoriaRepository categoriaRepository;
 
-    public CategoriaServiceImpl(CategoriaRepository categoriaRepository) {
-        this.categoriaRepository = categoriaRepository;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Override
+    public List<Categoria> listarCategoria() {
+        return categoriaRepository.listarCategoria();
     }
 
     @Override
-    public Categoria findById(int id) {
-
-        return categoriaRepository.findById(id).orElseThrow(()-> new RuntimeException("Sede no disponible con ID: " + id));
+    public void insertarCategoria(Categoria categoria) {
+        categoriaRepository.insertarCategoria(categoria);
     }
 
     @Override
-    public List<Categoria> findAll() {
-        return categoriaRepository.findAll();
+    public void eliminarCategoriaLogico(int id) {
+        categoriaRepository.eliminarCategoriaLogico(id);
     }
 
     @Override
-    public void save(Categoria categoria) {
-
+    public void modificarCategoria(Categoria categoria) {
+        categoriaRepository.modificarCategoria(categoria);
     }
 
-    @Override
-    public void update(Categoria categoria) {
 
-    }
-
-    @Override
-    public void deleteById(int id) {
-
-    }
 }
