@@ -21,7 +21,7 @@ BEGIN
 				T1.cDescripcion,
 				T1.bImagen,
 				T1.bEstado
-			FROM CategoriaProducto T1
+			FROM CategoriaProducto T1 WITH(NOLOCK)
 
 		COMMIT TRAN
 	END TRY

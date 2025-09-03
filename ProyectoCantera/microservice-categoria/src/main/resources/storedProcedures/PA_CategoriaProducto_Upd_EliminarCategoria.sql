@@ -10,7 +10,7 @@ EJEMPLO:
 EXEC PA_CategoriaProducto_Upd_EliminarCategoria 1
 -----------------------------------------------------------------------------------*/
 CREATE PROCEDURE PA_CategoriaProducto_Upd_EliminarCategoria (
-    @nCategoriaProductoId INT
+    @nCategoriaProductoId		INT
 )
 AS
 BEGIN

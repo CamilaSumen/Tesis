@@ -13,8 +13,7 @@ CREATE PROCEDURE PA_CategoriaProducto_Upd_NuevaCategoria (
     @nCategoriaProductoId	INT,
     @cNombreCategoria		VARCHAR(50),
     @cDescripcion			VARCHAR(150),
-    @bImagen				VARCHAR(MAX),
-    @bEstado				BIT
+    @bImagen				VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -26,8 +25,7 @@ BEGIN
         SET
             cNombreCategoria = @cNombreCategoria,
             cDescripcion = @cDescripcion,
-            bImagen = @bImagen,
-            bEstado = @bEstado
+            bImagen = @bImagen
         WHERE nCategoriaProductoId = @nCategoriaProductoId
 
         COMMIT TRAN;

@@ -48,7 +48,6 @@ public class CategoriaRepositoryImpl implements CategoriaRepository {
                 categoria.getCategoryId(),
                 categoria.getNameCategory(),
                 categoria.getDescriptionCategory(),
-                categoria.getImageCategory(),
-                categoria.getStateCategory());
+                categoria.getImageCategory());
     }
 }

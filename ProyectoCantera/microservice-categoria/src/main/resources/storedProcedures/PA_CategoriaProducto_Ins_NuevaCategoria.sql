@@ -21,10 +21,10 @@ BEGIN
 		BEGIN TRAN
 
 			INSERT INTO CategoriaProducto (
-				cNombreCategoria, cDescripcion, bEstado, bImagen
+				cNombreCategoria, cDescripcion,bImagen
 			)
 			VALUES (
-				@cNombreCategoria, @cDescripcion, 1,@bImagen
+				@cNombreCategoria, @cDescripcion, @bImagen
 			)
 
 
