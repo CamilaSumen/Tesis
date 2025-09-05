@@ -30,6 +30,8 @@
     <module>microservice-empleado</module>
     <module>microservice-usuario</module>
     <module>microservice-delivery</module>
+    <module>microservice-formapago</module>
+
   </modules>
 
   <properties>

@@ -48,6 +48,10 @@ spring:
           uri: lb://msvc-delivery
           predicates:
             - Path=/api/delivery/**
+        - id: formapago
+          uri: lb://msvc-formapago
+          predicates:
+            - Path=/api/formapago/**
         - id: categoria
           uri: lb://msvc-categoria
           predicates:

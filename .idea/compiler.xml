@@ -11,17 +11,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
-        <module name="microservice-privilegio" />
-        <module name="microservice-usuario" />
+        <module name="microservice-formapago" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
         <module name="microservice-mesa" />
+        <module name="microservice-categoria" />
+        <module name="microservice-privilegio" />
+        <module name="microservice-usuario" />
         <module name="microservice-empleado" />
         <module name="microservice-delivery" />
         <module name="microservice-configServer" />
         <module name="microservice-cargo" />
         <module name="microservice-eureka" />
-        <module name="microservice-categoria" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -43,6 +44,7 @@
       <module name="microservice-delivery" options="-parameters" />
       <module name="microservice-empleado" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-formapago" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-mesa" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
