@@ -12,26 +12,26 @@ public class MesaServiceImpl implements MesaService {
 
 
     @Autowired
-    private MesaRepository cargoRepository;
+    private MesaRepository mesaRepository;
 
     @Override
     public List<Mesa> listarMesas() {
-        return cargoRepository.listarMesas();
+        return mesaRepository.listarMesas();
     }
 
     @Override
     public void insertarMesa(Mesa mesa) {
-        cargoRepository.insertarMesa(mesa);
+        mesaRepository.insertarMesa(mesa);
     }
 
     @Override
     public void eliminarMesaLogico(int id) {
-        cargoRepository.eliminarMesaLogico(id);
+        mesaRepository.eliminarMesaLogico(id);
     }
 
     @Override
     public void modificarMesa(Mesa mesa) {
-        cargoRepository.modificarMesa(mesa);
+        mesaRepository.modificarMesa(mesa);
     }
 
 }

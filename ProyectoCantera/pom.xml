@@ -29,6 +29,7 @@
     <module>microservice-privilegio</module>
     <module>microservice-empleado</module>
     <module>microservice-usuario</module>
+    <module>microservice-delivery</module>
   </modules>
 
   <properties>
