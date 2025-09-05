@@ -23,6 +23,7 @@
     <module>microservice-configServer</module>
     <module>microservice-categoria</module>
     <module>microservice-cargo</module>
+    <module>microservice-mesa</module>
     <module>microservice-producto</module>
     <module>microservice-turno</module>
     <module>microservice-privilegio</module>
