@@ -31,6 +31,7 @@
     <module>microservice-usuario</module>
     <module>microservice-delivery</module>
     <module>microservice-formapago</module>
+    <module>microservice-adicional</module>
 
   </modules>
 

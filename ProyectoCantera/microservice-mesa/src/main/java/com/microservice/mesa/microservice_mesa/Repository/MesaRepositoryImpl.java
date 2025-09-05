@@ -17,7 +17,7 @@ public class MesaRepositoryImpl implements MesaRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    /*IMPLEMENTACION PARA LOS TURNOS*/
+    /*IMPLEMENTACION PARA LOS MESAS*/
     @Override
     public List<Mesa> listarMesas() {
         String sql = StoredProcedureC.SEL_MESA;
