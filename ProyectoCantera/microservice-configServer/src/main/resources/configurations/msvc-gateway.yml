@@ -60,6 +60,10 @@ spring:
           uri: lb://msvc-adicional
           predicates:
             - Path=/api/adicional/**
+        - id: producto
+          uri: lb://msvc-producto
+          predicates:
+            - Path=/api/producto/**
         - id: privilegio
           uri: lb://msvc-privilegio
           predicates:

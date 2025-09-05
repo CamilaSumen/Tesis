@@ -1,5 +1,5 @@
 server:
-  port: 9086
+  port: 8087
 
 spring:
   application:
@@ -7,8 +7,8 @@ spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://localhost:1433;databaseName=LA_CANTERA;trustServerCertificate=true
-    username: Algoritmo
-    password: 12345
+    username: codel
+    password: 123
 
 eureka:
   instance:
