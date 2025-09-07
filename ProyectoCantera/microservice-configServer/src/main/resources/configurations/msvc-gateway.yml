@@ -64,6 +64,14 @@ spring:
           uri: lb://msvc-producto
           predicates:
             - Path=/api/producto/**
+        - id: insumo
+          uri: lb://msvc-insumo
+          predicates:
+            - Path=/api/insumo/**
+        - id: categoriainsumo
+          uri: lb://msvc-categoriainsumo
+          predicates:
+            - Path=/api/categoriainsumo/**
         - id: privilegio
           uri: lb://msvc-privilegio
           predicates:

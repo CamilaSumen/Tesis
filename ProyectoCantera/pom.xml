@@ -32,6 +32,8 @@
     <module>microservice-delivery</module>
     <module>microservice-formapago</module>
     <module>microservice-adicional</module>
+    <module>microservice-insumo</module>
+    <module>microservice-categoriainsumo</module>
 
   </modules>
 

@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-cartelera/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-cartelera/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-categoria/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-categoriainsumo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-configServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-configServer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-confiteria/src/main/java" charset="UTF-8" />
@@ -17,6 +18,7 @@
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-formapago/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-insumo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-mesa/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-peliculas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProyectoCantera/microservice-peliculas/src/main/resources" charset="UTF-8" />

@@ -15,6 +15,7 @@
         <module name="microservice-producto" />
         <module name="microservice-turno" />
         <module name="microservice-mesa" />
+        <module name="microservice-categoriainsumo" />
         <module name="microservice-categoria" />
         <module name="microservice-privilegio" />
         <module name="microservice-usuario" />
@@ -23,6 +24,7 @@
         <module name="microservice-configServer" />
         <module name="microservice-adicional" />
         <module name="microservice-cargo" />
+        <module name="microservice-insumo" />
         <module name="microservice-eureka" />
       </profile>
     </annotationProcessing>
@@ -41,6 +43,7 @@
       <module name="microservice-cargo" options="-parameters" />
       <module name="microservice-cartelera" options="-parameters" />
       <module name="microservice-categoria" options="-parameters" />
+      <module name="microservice-categoriainsumo" options="-parameters" />
       <module name="microservice-configServer" options="-parameters" />
       <module name="microservice-confiteria" options="-parameters" />
       <module name="microservice-delivery" options="-parameters" />
@@ -48,6 +51,7 @@
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-formapago" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-insumo" options="-parameters" />
       <module name="microservice-mesa" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
       <module name="microservice-privilegio" options="-parameters" />
