@@ -34,6 +34,7 @@
     <module>microservice-adicional</module>
     <module>microservice-insumo</module>
     <module>microservice-categoriainsumo</module>
+    <module>microservice-proveedor</module>
 
   </modules>
 
