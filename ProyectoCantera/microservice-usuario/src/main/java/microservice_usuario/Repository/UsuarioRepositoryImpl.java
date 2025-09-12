@@ -50,4 +50,17 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
                 usuario.getPrivilegeId(),
                 usuario.getShiftId());
     }
+
+    @Override
+    public Usuario verificarUsuario(String username, String password) {
+        String sql = StoredProcedureC.UPD_VERIFICARUSUARIO;
+        List<UsuarioTranslator> lista = jdbcTemplate.query(sql, new UsuarioRowMapper(), username, password);
+
+        if (lista.isEmpty()) {
+            return null; // usuario no encontrado
+        }
+
+        return lista.get(0).toUsuarioDTO(); // devuelve el primer resultado
+    }
+
 }

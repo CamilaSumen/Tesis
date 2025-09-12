@@ -5,6 +5,7 @@ import com.microservice.mesa.microservice_mesa.Service.MesaService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/mesa")
@@ -35,5 +36,20 @@ public class MesaController {
     public void eliminar(@PathVariable int id) {
         mesaService.eliminarMesaLogico(id);
     }
-    
+
+    @PutMapping("/mesaocupada")
+    public void mesaocupada(@RequestBody Map<String, String> request) {
+        String tableCode = request.get("tableCode");
+        Mesa mesa = new Mesa();
+        mesa.setTableCode(tableCode);
+        mesaService.ocupadaMesa(mesa);
+    }
+
+    @PutMapping("/mesadesocupada")
+    public void mesadesocupada(@RequestBody Map<String, String> request) {
+        String tableCode = request.get("tableCode");
+        Mesa mesa = new Mesa();
+        mesa.setTableCode(tableCode);
+        mesaService.desocupadaMesa(mesa);
+    }
 }

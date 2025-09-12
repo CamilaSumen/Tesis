@@ -44,4 +44,16 @@ public class MesaRepositoryImpl implements MesaRepository {
                 mesa.getTableId(),
                 mesa.getTableCode());
     }
+
+    @Override
+    public void ocupadaMesa(Mesa mesa) {
+        jdbcTemplate.update(StoredProcedureC.UPD_OCUPADAMESA,
+                mesa.getTableCode());
+    }
+
+    @Override
+    public void desocupadaMesa(Mesa mesa) {
+        jdbcTemplate.update(StoredProcedureC.UPD_DESOCUPARDAMESA,
+                mesa.getTableCode());
+    }
 }

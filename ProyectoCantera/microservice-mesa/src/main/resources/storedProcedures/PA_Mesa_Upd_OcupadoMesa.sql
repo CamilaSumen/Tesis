@@ -1,20 +1,16 @@
-IF OBJECT_ID('PA_Adicional_Upd_Adicional') IS NOT NULL
-    DROP PROCEDURE PA_Adicional_Upd_Adicional
+IF OBJECT_ID('PA_Mesa_Upd_OcupadoMesa') IS NOT NULL
+    DROP PROCEDURE PA_Mesa_Upd_OcupadoMesa
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO         | Modifica una Adicional existente.
+PROPÓSITO         | Modifica una mesa existente.
 AUTOR             | Jorge Bonifaz
 FECHA DE CREACIÓN | 2025-07-05
 -----------------------------------------------------------------------------------
 EJEMPLO:
-EXEC PA_Adicional_Upd_Adicional 1, 'HOLI', 'DSAD', 30
+EXEC PA_Mesa_Upd_OcupadoMesa '02'
 -----------------------------------------------------------------------------------*/
-CREATE PROCEDURE PA_Adicional_Upd_Adicional (
-    @nAdicionalId					INT,
-	@cNombreAdicional				VARCHAR(50),
-	@cDescripcionAdicional			VARCHAR(150),
-	@nPrecio						MONEY,
-	@cImagen                        VARCHAR(MAX)
+CREATE PROCEDURE PA_Mesa_Upd_OcupadoMesa (
+    @cCodMesa					VARCHAR(3)
 )
 AS
 BEGIN
@@ -22,13 +18,10 @@ BEGIN
     BEGIN TRY
         BEGIN TRAN
 
-        UPDATE Adicional
+        UPDATE Mesa
         SET
-            cNombreAdicional = @cNombreAdicional,
-			cDescripcionAdicional = @cDescripcionAdicional,
-			nPrecio = @nPrecio,
-			cImagen = @cImagen
-        WHERE nAdicionalId = @nAdicionalId
+            bocupado = 1
+        WHERE ccodmesa = @cCodMesa
 
         COMMIT TRAN;
     END TRY

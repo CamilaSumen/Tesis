@@ -32,7 +32,8 @@ public class AdicionalRepositoryImpl implements AdicionalRepository {
         jdbcTemplate.update(StoredProcedureC.INS_ADICIONALNUEVO,
                 adicional.getAdicionalName(),
                 adicional.getAdicionalDescription(),
-                adicional.getAdicionalPrecio());
+                adicional.getAdicionalPrecio(),
+                adicional.getImagen());
     }
 
     @Override
@@ -46,6 +47,7 @@ public class AdicionalRepositoryImpl implements AdicionalRepository {
                 adicional.getAdicionalId(),
                 adicional.getAdicionalName(),
                 adicional.getAdicionalDescription(),
-                adicional.getAdicionalPrecio());
+                adicional.getAdicionalPrecio(),
+                adicional.getImagen());
     }
 }

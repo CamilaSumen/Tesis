@@ -8,7 +8,7 @@ public class ProductoTranslator {
 
 
     private Integer productId;
-    private String categoryId;
+    private Integer categoryId;
     private String categoryname;
     private String productName;
     private String productDescription;
@@ -21,7 +21,7 @@ public class ProductoTranslator {
         this.productId = productId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -56,8 +56,9 @@ public class ProductoTranslator {
     public Producto toProductoDTO() {
         Producto producto = new Producto();
         producto.setProductId(this.productId);
-        producto.setCategoryname(this.categoryname);
         producto.setProductName(this.productName);
+        producto.setCategoryname(this.categoryname);
+        producto.setCategoryId(this.categoryId);
         producto.setProductDescription(this.productDescription);
         producto.setProductimg(this.productimg);
         producto.setProductPryce(this.productPryce);

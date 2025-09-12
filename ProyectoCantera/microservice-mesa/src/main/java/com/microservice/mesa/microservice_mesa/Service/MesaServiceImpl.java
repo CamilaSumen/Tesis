@@ -34,4 +34,13 @@ public class MesaServiceImpl implements MesaService {
         mesaRepository.modificarMesa(mesa);
     }
 
+    @Override
+    public void ocupadaMesa(Mesa mesa) {
+        mesaRepository.ocupadaMesa(mesa);
+    }
+
+    @Override
+    public void desocupadaMesa(Mesa mesa) {
+        mesaRepository.desocupadaMesa(mesa);
+    }
 }

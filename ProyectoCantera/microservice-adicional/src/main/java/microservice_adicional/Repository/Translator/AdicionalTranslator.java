@@ -12,6 +12,7 @@ public class AdicionalTranslator {
     private Double adicionalPrecio;
     private LocalTime adicionalfechaRegistro;
     private Boolean stateAdicional;
+    private String imagen;
 
     public void setAdicionalId(Integer adicionalId) {
         this.adicionalId = adicionalId;
@@ -29,6 +30,10 @@ public class AdicionalTranslator {
         this.adicionalPrecio = adicionalPrecio;
     }
 
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public void setAdicionalfechaRegistro(LocalTime adicionalfechaRegistro) {
         this.adicionalfechaRegistro = adicionalfechaRegistro;
     }
@@ -43,7 +48,7 @@ public class AdicionalTranslator {
         adicional.setAdicionalName(this.adicionalName);
         adicional.setAdicionalDescription(this.adicionalDescription);
         adicional.setAdicionalPrecio(this.adicionalPrecio);
-        adicional.setAdicionalfechaRegistro(this.adicionalfechaRegistro);
+        adicional.setImagen(this.imagen);
         adicional.setStateAdicional(this.stateAdicional);
         return adicional;
     }

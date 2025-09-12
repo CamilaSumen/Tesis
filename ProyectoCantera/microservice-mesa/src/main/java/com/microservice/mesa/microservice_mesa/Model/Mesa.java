@@ -14,5 +14,6 @@ public class Mesa implements Serializable {
     private Integer tableId;
     private String tableCode;
     private Boolean tableBusy;
+    private String username;
     private Boolean stateTable;
 }

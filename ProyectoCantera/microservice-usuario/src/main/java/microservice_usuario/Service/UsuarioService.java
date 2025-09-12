@@ -9,5 +9,6 @@ public interface UsuarioService {
     void insertarUsuario(Usuario usuario);
     void eliminarUsuarioLogico(int id);
     void modificarUsuario(Usuario usuario);
+    Usuario verificarUsuario(String username, String password);
 
 }

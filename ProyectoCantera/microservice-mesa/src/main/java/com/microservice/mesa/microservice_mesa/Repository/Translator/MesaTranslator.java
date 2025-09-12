@@ -8,6 +8,7 @@ public class MesaTranslator {
     private String tableCode;
     private Boolean tableBusy;
     private Boolean stateTable;
+    private String username;
 
     public void setTableId(Integer tableId) {
         this.tableId = tableId;
@@ -25,12 +26,16 @@ public class MesaTranslator {
         this.stateTable = stateTable;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Mesa toMesaDTO() {
         Mesa mesa = new Mesa();
         mesa.setTableId(this.tableId);
         mesa.setTableCode(this.tableCode);
         mesa.setTableBusy(this.tableBusy);
+        mesa.setUsername(this.username);
         mesa.setStateTable(this.stateTable);
         return mesa;
     }

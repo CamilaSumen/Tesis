@@ -14,8 +14,9 @@ public class ProductoRowMapper implements RowMapper<ProductoTranslator> {
         ProductoTranslator producto = new ProductoTranslator();
 
         producto.setProductId(rs.getInt("nProductoId"));
-        producto.setCategoryname(rs.getString("cNombreCategoria"));
         producto.setProductName(rs.getString("cNombreProducto"));
+        producto.setCategoryId(rs.getInt("nCategoriaProductoId"));
+        producto.setCategoryname(rs.getString("cNombreCategoria"));
         producto.setProductDescription(rs.getString("cDescripcionProducto"));
         producto.setProductimg(rs.getString("cImagen"));
         producto.setProductPryce(rs.getDouble("nPrecio"));

@@ -12,10 +12,12 @@ public class UsuarioRowMapper implements RowMapper<UsuarioTranslator> {
     public UsuarioTranslator mapRow(ResultSet rs, int rowNum) throws SQLException {
         UsuarioTranslator usuario = new UsuarioTranslator();
 
-        usuario.setUserId(rs.getInt("nUsuarioId"));
+        //usuario.setUserId(rs.getInt("nUsuarioId"));
         usuario.setUsername(rs.getString("cCodUsuario"));
         usuario.setPassword(rs.getString("cPassword"));
+        usuario.setCargoCod(rs.getString("cCargoCod"));
 
+/*
         usuario.setPrivilegeId(rs.getInt("nPrivilegioId"));
         usuario.setPrivilegeName(rs.getString("cNombrePrivilegio"));
 
@@ -32,7 +34,7 @@ public class UsuarioRowMapper implements RowMapper<UsuarioTranslator> {
         usuario.setPhone(rs.getString("cTelefono"));
 
         usuario.setStatus(rs.getBoolean("nEstado"));
-
+*/
         return usuario;
     }
 }

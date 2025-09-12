@@ -20,7 +20,7 @@ BEGIN
 				T1.cNombreAdicional,
 				T1.cDescripcionAdicional,
 				T1.nPrecio,
-				T1.dFechaRegistro,
+				T1.cImagen,
 				T1.bEstado
 			FROM Adicional T1 WITH(NOLOCK)
 

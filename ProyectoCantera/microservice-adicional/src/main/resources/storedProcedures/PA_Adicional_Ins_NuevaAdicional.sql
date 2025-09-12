@@ -12,7 +12,8 @@ EXEC PA_Adicional_Ins_NuevaAdicional 'DSADSA', 'DSADSADSA', 10.20
 CREATE PROCEDURE PA_Adicional_Ins_NuevaAdicional (
     @cNombreAdicional				VARCHAR(50),
 	@cDescripcionAdicional			VARCHAR(150),
-	@nPrecio						MONEY
+	@nPrecio						MONEY,
+	@cImagen                        VARCHAR(MAX)
 
 )
 AS
@@ -22,10 +23,10 @@ BEGIN
 		BEGIN TRAN
 
 			INSERT INTO Adicional (
-				cNombreAdicional, cDescripcionAdicional, nPrecio
+				cNombreAdicional, cDescripcionAdicional, nPrecio, cImagen
 			)
 			VALUES (
-				@cNombreAdicional, @cDescripcionAdicional, @nPrecio
+				@cNombreAdicional, @cDescripcionAdicional, @nPrecio, @cImagen
 			)
 
 

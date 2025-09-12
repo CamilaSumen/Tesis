@@ -34,5 +34,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRepository.modificarUsuario(usuario);
     }
 
+    @Override
+    public Usuario verificarUsuario(String username, String password) {
+        return usuarioRepository.verificarUsuario(username, password);
+    }
 
 }

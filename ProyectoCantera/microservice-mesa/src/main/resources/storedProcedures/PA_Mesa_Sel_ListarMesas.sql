@@ -19,6 +19,7 @@ BEGIN
 				T1.nMesaId,
 				T1.cCodMesa,
 				T1.bocupado,
+				T1.cCodUsuario,
 				T1.bEstado
 			FROM Mesa T1 WITH(NOLOCK)
 

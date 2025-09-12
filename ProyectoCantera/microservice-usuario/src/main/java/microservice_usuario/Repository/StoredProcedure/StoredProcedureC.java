@@ -8,4 +8,7 @@ public class StoredProcedureC {
     public static final String UPD_ELIMARTUSUARIOLOGICO = "{call PA_Usuario_Upd_Eliminar(?)}";
     public static final String UPD_MODIFICARUSUARIO = "{call PA_Usuario_Upd_Modificar(?,?,?,?,?)}";
 
+    public static final String UPD_VERIFICARUSUARIO = "{call PA_Usuario_VerificarUsuario(?,?)}";
+
+
 }

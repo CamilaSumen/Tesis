@@ -13,7 +13,7 @@ public class Producto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer productId;
-    private String categoryId;
+    private Integer categoryId;
     private String categoryname;
     private String productName;
     private String productDescription;

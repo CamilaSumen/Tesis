@@ -11,5 +11,6 @@ public interface MesaService {
     void insertarMesa(Mesa mesa);
     void eliminarMesaLogico(int id);
     void modificarMesa(Mesa mesa);
-    
+    void ocupadaMesa(Mesa mesa);
+    void desocupadaMesa(Mesa mesa);
 }

@@ -16,7 +16,7 @@ public class AdicionalRowMapper implements RowMapper<AdicionalTranslator> {
         adicional.setAdicionalName(rs.getString("cNombreAdicional"));
         adicional.setAdicionalDescription(rs.getString("cDescripcionAdicional"));
         adicional.setAdicionalPrecio(rs.getDouble("nPrecio"));
-        adicional.setAdicionalfechaRegistro(rs.getTime("dFechaRegistro").toLocalTime());
+        adicional.setImagen(rs.getString("cImagen"));
         adicional.setStateAdicional(rs.getBoolean("bEstado"));
 
         return adicional;

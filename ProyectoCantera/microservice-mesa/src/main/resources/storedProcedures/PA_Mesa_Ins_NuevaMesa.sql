@@ -19,10 +19,10 @@ BEGIN
 		BEGIN TRAN
 
 			INSERT INTO Mesa (
-				cCodMesa
+				cCodMesa, cCodUsuario
 			)
 			VALUES (
-				@cCodMesa
+				@cCodMesa, 'S/A'
 			)
 
 
