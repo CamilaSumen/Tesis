@@ -23,6 +23,10 @@ BEGIN
             bocupado = 0
         WHERE ccodmesa = @cCodMesa
 
+		UPDATE Pedidos
+		set ESTADO = 'CANCELADO'
+		WHERE Mesa = @cCodMesa
+
         COMMIT TRAN;
     END TRY
     BEGIN CATCH

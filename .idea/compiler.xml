@@ -14,6 +14,7 @@
         <module name="microservice-formapago" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
+        <module name="microservice-pedido" />
         <module name="microservice-mesa" />
         <module name="microservice-proveedor" />
         <module name="microservice-categoriainsumo" />
@@ -54,6 +55,7 @@
       <module name="microservice-gateway" options="-parameters" />
       <module name="microservice-insumo" options="-parameters" />
       <module name="microservice-mesa" options="-parameters" />
+      <module name="microservice-pedido" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
       <module name="microservice-privilegio" options="-parameters" />
       <module name="microservice-producto" options="-parameters" />

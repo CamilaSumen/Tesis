@@ -5,6 +5,7 @@ import com.microservice.mesa.microservice_mesa.Model.Mesa;
 public class MesaTranslator {
 
     private Integer tableId;
+    private Integer pedidoID;
     private String tableCode;
     private Boolean tableBusy;
     private Boolean stateTable;
@@ -12,6 +13,10 @@ public class MesaTranslator {
 
     public void setTableId(Integer tableId) {
         this.tableId = tableId;
+    }
+
+    public void setPedidoID(Integer pedidoID) {
+        this.pedidoID = pedidoID;
     }
 
     public void setTableCode(String tableCode) {
@@ -33,6 +38,7 @@ public class MesaTranslator {
     public Mesa toMesaDTO() {
         Mesa mesa = new Mesa();
         mesa.setTableId(this.tableId);
+        mesa.setPedidoID(this.pedidoID);
         mesa.setTableCode(this.tableCode);
         mesa.setTableBusy(this.tableBusy);
         mesa.setUsername(this.username);

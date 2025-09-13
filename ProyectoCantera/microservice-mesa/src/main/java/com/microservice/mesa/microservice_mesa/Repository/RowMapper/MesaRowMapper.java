@@ -14,6 +14,7 @@ public class MesaRowMapper implements RowMapper<MesaTranslator> {
         MesaTranslator mesa = new MesaTranslator();
 
         mesa.setTableId(rs.getInt("nMesaId"));
+        mesa.setPedidoID(rs.getInt("PedidoID"));
         mesa.setTableCode(rs.getString("cCodMesa"));
         mesa.setTableBusy(rs.getBoolean("bocupado"));
         mesa.setUsername(rs.getString("cCodUsuario"));

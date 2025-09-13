@@ -12,6 +12,7 @@ public class Mesa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer tableId;
+    private Integer pedidoID;
     private String tableCode;
     private Boolean tableBusy;
     private String username;
