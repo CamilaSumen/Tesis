@@ -1,6 +1,5 @@
 package microservice_proveedor.Repository.RowMapper;
 
-import microservice_proveedor.Model.Proveedor;
 import microservice_proveedor.Repository.Translator.ProveedorTranslator;
 import org.springframework.jdbc.core.RowMapper;
 

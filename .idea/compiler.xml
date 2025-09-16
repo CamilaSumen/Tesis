@@ -11,6 +11,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
+        <module name="microservice-ordenCompra" />
         <module name="microservice-formapago" />
         <module name="microservice-producto" />
         <module name="microservice-turno" />
@@ -61,6 +62,7 @@
       <module name="microservice-insumo" options="-parameters" />
       <module name="microservice-inventario" options="-parameters" />
       <module name="microservice-mesa" options="-parameters" />
+      <module name="microservice-ordenCompra" options="-parameters" />
       <module name="microservice-pedido" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
       <module name="microservice-privilegio" options="-parameters" />

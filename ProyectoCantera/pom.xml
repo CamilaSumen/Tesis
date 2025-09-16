@@ -38,6 +38,7 @@
     <module>microservice-pedido</module>
     <module>microservice-comprobante</module>
     <module>microservice-cocina</module>
+    <module>microservice-ordenCompra</module>
 
   </modules>
 
