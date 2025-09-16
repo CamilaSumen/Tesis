@@ -12,5 +12,6 @@ public class Categoriainsumo {
     private Integer inputcategoryId;
     private String inputcategoryname;
     private String inputcategorydescription;
+    private String inputcategoryimg;
     private Boolean stateinputcategory;
 }

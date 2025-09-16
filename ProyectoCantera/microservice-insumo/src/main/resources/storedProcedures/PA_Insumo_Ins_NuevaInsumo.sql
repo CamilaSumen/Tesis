@@ -13,7 +13,8 @@ CREATE PROCEDURE PA_Insumo_Ins_NuevaInsumo (
     @nCategoriaInsumoId		INT,
 	@cNombreInsumo			VARCHAR(100),
 	@cUnidadMedida			VARCHAR(20),
-	@nStockActual			DECIMAL(10,2)
+	@nStockActual			DECIMAL(10,2),
+	@cImagen				VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -22,10 +23,10 @@ BEGIN
 		BEGIN TRAN
 
 			INSERT INTO Insumo (
-				nCategoriaInsumoId, cNombreInsumo, cUnidadMedida, nStockActual
+				nCategoriaInsumoId, cNombreInsumo, cUnidadMedida, nStockActual, cImagen
 			)
 			VALUES (
-				@nCategoriaInsumoId, @cNombreInsumo, @cUnidadMedida, @nStockActual
+				@nCategoriaInsumoId, @cNombreInsumo, @cUnidadMedida, @nStockActual, @cImagen
 			)
 
 

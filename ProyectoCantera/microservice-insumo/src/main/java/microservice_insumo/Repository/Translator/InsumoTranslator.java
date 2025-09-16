@@ -10,6 +10,7 @@ public class InsumoTranslator {
     private String supplyName;
     private String unitOfMeasure;
     private Double currentStock;
+    private String supplyImg;
     private Boolean status;
 
     public void setSupplyId(Integer supplyId) {
@@ -36,6 +37,10 @@ public class InsumoTranslator {
         this.currentStock = currentStock;
     }
 
+    public void setSupplyImg(String supplyImg) {
+        this.supplyImg = supplyImg;
+    }
+
     public void setStatus(Boolean status) {
         this.status = status;
     }
@@ -43,10 +48,12 @@ public class InsumoTranslator {
     public Insumo toInsumoDTO() {
         Insumo insumo = new Insumo();
         insumo.setSupplyId(this.supplyId);
+        insumo.setSupplyCategoryId(this.supplyCategoryId);
         insumo.setSupplyCategoryName(this.supplyCategoryName);
         insumo.setSupplyName(this.supplyName);
         insumo.setUnitOfMeasure(this.unitOfMeasure);
         insumo.setCurrentStock(this.currentStock);
+        insumo.setSupplyImg(this.supplyImg);
         insumo.setStatus(this.status);
         return insumo;
     }

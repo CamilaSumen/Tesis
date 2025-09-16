@@ -12,7 +12,8 @@ EXEC PA_Categoriainsumo_Upd_ActualizarCategoriainsumo 1, 'DSADSA', 'DSADSADSA'
 CREATE PROCEDURE PA_Categoriainsumo_Upd_ActualizarCategoriainsumo (
     @nCategoriainsumoId					INT,
     @cNombre							VARCHAR(100),
-	@cDescripcion						VARCHAR(200)
+	@cDescripcion						VARCHAR(200),
+	@cImagen							VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -23,7 +24,8 @@ BEGIN
         UPDATE Categoriainsumo
         SET
             cNombre = @cNombre,
-			cDescripcion = @cDescripcion
+			cDescripcion = @cDescripcion,
+			cImagen = @cImagen
         WHERE nCategoriainsumoId = @nCategoriainsumoId
 
         COMMIT TRAN;

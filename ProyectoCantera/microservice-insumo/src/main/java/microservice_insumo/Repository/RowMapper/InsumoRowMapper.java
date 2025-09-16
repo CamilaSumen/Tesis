@@ -13,10 +13,12 @@ public class InsumoRowMapper implements RowMapper<InsumoTranslator> {
         InsumoTranslator insumo = new InsumoTranslator();
 
         insumo.setSupplyId(rs.getInt("nInsumoId"));
+        insumo.setSupplyCategoryId(rs.getInt("nCategoriaInsumoId"));
         insumo.setSupplyName(rs.getString("cNombreInsumo"));
         insumo.setSupplyCategoryName(rs.getString("cNombreCategoriaInsumo"));
         insumo.setUnitOfMeasure(rs.getString("cUnidadMedida"));
         insumo.setCurrentStock(rs.getDouble("nStockActual"));
+        insumo.setSupplyImg(rs.getString("cImagen"));
         insumo.setStatus(rs.getBoolean("bEstado"));
 
         return insumo;

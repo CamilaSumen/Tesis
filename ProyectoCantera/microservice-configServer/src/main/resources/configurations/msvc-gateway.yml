@@ -78,6 +78,14 @@ spring:
           uri: lb://msvc-pedido
           predicates:
             - Path=/api/pedido/**
+        - id: comprobante
+          uri: lb://msvc-comprobante
+          predicates:
+            - Path=/api/comprobante/**
+        - id: cocina
+          uri: lb://msvc-cocina
+          predicates:
+            - Path=/api/cocina/**
         - id: proveedor
           uri: lb://msvc-proveedor
           predicates:

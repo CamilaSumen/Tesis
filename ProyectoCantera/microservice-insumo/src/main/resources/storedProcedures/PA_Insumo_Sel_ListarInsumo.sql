@@ -18,9 +18,11 @@ BEGIN
 			SELECT
 				T1.nInsumoId,
 				T1.cNombreInsumo,
+				T2.nCategoriaInsumoId,
 				T2.cNombre AS cNombreCategoriaInsumo,
 				T1.cUnidadMedida,
 				T1.nStockActual,
+				T1.cImagen,
 				T1.bEstado
 			FROM Insumo T1 WITH(NOLOCK)
 			INNER JOIN Categoriainsumo T2 WITH(NOLOCK) ON T1.nCategoriaInsumoId = T2.nCategoriaInsumoId

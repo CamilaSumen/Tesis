@@ -14,7 +14,8 @@ CREATE PROCEDURE PA_Insumo_Upd_ActualizarInsumo (
     @nCategoriaInsumoId		INT,
 	@cNombreInsumo			VARCHAR(100),
 	@cUnidadMedida			VARCHAR(20),
-	@nStockActual			DECIMAL(10,2)
+	@nStockActual			DECIMAL(10,2),
+	@cImagen				VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -27,7 +28,8 @@ BEGIN
 			nCategoriaInsumoId = @nCategoriaInsumoId,
 			cNombreInsumo = @cNombreInsumo,
 			cUnidadMedida = @cUnidadMedida,
-			nStockActual = @nStockActual
+			nStockActual = @nStockActual,
+			cImagen = @cImagen
         WHERE nInsumoId = @nInsumoId
 
         COMMIT TRAN;

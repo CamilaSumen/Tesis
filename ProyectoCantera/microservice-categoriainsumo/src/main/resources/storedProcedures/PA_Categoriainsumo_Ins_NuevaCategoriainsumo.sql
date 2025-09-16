@@ -11,7 +11,8 @@ EXEC PA_Categoriainsumo_Ins_NuevaCategoriainsumo 'cate insumo 1', 'descripcion c
 -----------------------------------------------------------------------------------*/
 CREATE PROCEDURE PA_Categoriainsumo_Ins_NuevaCategoriainsumo (
     @cNombre				VARCHAR(100),
-	@cDescripcion			VARCHAR(200)
+	@cDescripcion			VARCHAR(200),
+	@cImagen				VARCHAR(MAX)
 )
 AS
 BEGIN
@@ -20,10 +21,10 @@ BEGIN
 		BEGIN TRAN
 
 			INSERT INTO Categoriainsumo (
-				cNombre, cDescripcion
+				cNombre, cDescripcion, cImagen
 			)
 			VALUES (
-				@cNombre, @cDescripcion
+				@cNombre, @cDescripcion, @cImagen
 			)
 
 

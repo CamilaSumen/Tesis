@@ -31,7 +31,8 @@ public class CategoriainsumoRepositoryImpl implements CategoriainsumoRepository 
     public void insertarCategoriainsumo(Categoriainsumo categoriainsumo) {
         jdbcTemplate.update(StoredProcedureC.INS_CATEGORIAINSUMONUEVO,
                 categoriainsumo.getInputcategoryname(),
-                categoriainsumo.getInputcategorydescription());
+                categoriainsumo.getInputcategorydescription(),
+                categoriainsumo.getInputcategoryimg());
     }
 
     @Override
@@ -44,6 +45,7 @@ public class CategoriainsumoRepositoryImpl implements CategoriainsumoRepository 
         jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARCATEGORIAINSUMO,
                 categoriainsumo.getInputcategoryId(),
                 categoriainsumo.getInputcategoryname(),
-                categoriainsumo.getInputcategorydescription());
+                categoriainsumo.getInputcategorydescription(),
+                categoriainsumo.getInputcategoryimg());
     }
 }

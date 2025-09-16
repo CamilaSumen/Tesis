@@ -17,5 +17,6 @@ public class Insumo implements Serializable {
     private String supplyName;
     private String unitOfMeasure;
     private Double currentStock;
+    private String supplyImg;
     private Boolean status;
 }

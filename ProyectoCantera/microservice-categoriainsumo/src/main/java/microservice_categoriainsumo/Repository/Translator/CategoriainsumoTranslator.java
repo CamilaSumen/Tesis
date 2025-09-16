@@ -7,6 +7,7 @@ public class CategoriainsumoTranslator {
     private Integer inputcategoryId;
     private String inputcategoryname;
     private String inputcategorydescription;
+    private String inputcategoryimg;
     private Boolean stateinputcategory;
 
     public void setInputcategoryId(Integer inputcategoryId) {
@@ -21,6 +22,10 @@ public class CategoriainsumoTranslator {
         this.inputcategorydescription = inputcategorydescription;
     }
 
+    public void setInputcategoryimg(String inputcategoryimg) {
+        this.inputcategoryimg = inputcategoryimg;
+    }
+
     public void setStateinputcategory(Boolean stateinputcategory) {
         this.stateinputcategory = stateinputcategory;
     }
@@ -31,6 +36,7 @@ public class CategoriainsumoTranslator {
         categoriainsumo.setInputcategoryId(this.inputcategoryId);
         categoriainsumo.setInputcategoryname(this.inputcategoryname);
         categoriainsumo.setInputcategorydescription(this.inputcategorydescription);
+        categoriainsumo.setInputcategoryimg(this.inputcategoryimg);
         categoriainsumo.setStateinputcategory(this.stateinputcategory);
         return categoriainsumo;
     }

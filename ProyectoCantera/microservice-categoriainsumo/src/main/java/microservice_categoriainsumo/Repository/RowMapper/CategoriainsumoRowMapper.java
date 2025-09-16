@@ -15,6 +15,7 @@ public class CategoriainsumoRowMapper implements RowMapper<CategoriainsumoTransl
         categoriainsumo.setInputcategoryId(rs.getInt("nCategoriaInsumoId"));
         categoriainsumo.setInputcategoryname(rs.getString("cNombre"));
         categoriainsumo.setInputcategorydescription(rs.getString("cDescripcion"));
+        categoriainsumo.setInputcategoryimg(rs.getString("cImagen"));
         categoriainsumo.setStateinputcategory(rs.getBoolean("bEstado"));
 
         return categoriainsumo;

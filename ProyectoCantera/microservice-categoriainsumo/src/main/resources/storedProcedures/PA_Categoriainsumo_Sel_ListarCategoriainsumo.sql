@@ -19,6 +19,7 @@ BEGIN
 				T1.nCategoriainsumoId,
 				T1.cNombre,
 				T1.cDescripcion,
+				T1.cImagen,
 				T1.bEstado
 			FROM Categoriainsumo T1 WITH(NOLOCK)
 

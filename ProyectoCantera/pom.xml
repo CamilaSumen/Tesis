@@ -36,6 +36,8 @@
     <module>microservice-categoriainsumo</module>
     <module>microservice-proveedor</module>
     <module>microservice-pedido</module>
+    <module>microservice-comprobante</module>
+    <module>microservice-cocina</module>
 
   </modules>
 

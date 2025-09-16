@@ -33,7 +33,8 @@ public class InsumoRepositoryImpl implements InsumoRepository {
                 insumo.getSupplyCategoryId(),
                 insumo.getSupplyName(),
                 insumo.getUnitOfMeasure(),
-                insumo.getCurrentStock());
+                insumo.getCurrentStock(),
+                insumo.getSupplyImg());
     }
 
     @Override
@@ -48,6 +49,7 @@ public class InsumoRepositoryImpl implements InsumoRepository {
                 insumo.getSupplyCategoryId(),
                 insumo.getSupplyName(),
                 insumo.getUnitOfMeasure(),
-                insumo.getCurrentStock());
+                insumo.getCurrentStock(),
+                insumo.getSupplyImg());
     }
 }
