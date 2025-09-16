@@ -1,13 +1,11 @@
 package microservice_cocina.Controller;
 
-
 import microservice_cocina.Model.CambioEstadoRequest;
 import microservice_cocina.Service.CocinaService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-
 
 @RestController
 @RequestMapping("/api/cocina")

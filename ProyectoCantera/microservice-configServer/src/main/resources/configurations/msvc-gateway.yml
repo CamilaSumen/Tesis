@@ -86,6 +86,14 @@ spring:
           uri: lb://msvc-cocina
           predicates:
             - Path=/api/cocina/**
+        - id: inventario
+          uri: lb://msvc-cocina
+          predicates:
+            - Path=/api/inventario/**
+        - id: caja
+          uri: lb://msvc-cocina
+          predicates:
+            - Path=/api/caja/**
         - id: proveedor
           uri: lb://msvc-proveedor
           predicates:
