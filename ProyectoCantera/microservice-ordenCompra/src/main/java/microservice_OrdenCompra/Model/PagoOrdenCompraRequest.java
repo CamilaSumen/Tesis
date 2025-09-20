@@ -17,4 +17,14 @@ public class PagoOrdenCompraRequest implements Serializable {
     private BigDecimal montoPagado;
     private String usuario;
     private String observaciones;
+    private String tipoComprobante = "FACTURA";
+
+    // getter y setter
+    public String getTipoComprobante() {
+        return tipoComprobante;
+    }
+
+    public void setTipoComprobante(String tipoComprobante) {
+        this.tipoComprobante = tipoComprobante;
+    }
 }

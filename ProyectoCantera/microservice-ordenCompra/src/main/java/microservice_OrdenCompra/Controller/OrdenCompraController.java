@@ -65,4 +65,10 @@ public class OrdenCompraController {
     public List<DetalleOrdenCompra> obtenerDetallesOrden(@PathVariable Integer ordenCompraId) {
         return ordenCompraService.obtenerDetallesOrden(ordenCompraId);
     }
+
+
+    @GetMapping("/{ordenCompraId}/comprobante")
+    public ComprobanteCompra obtenerComprobanteCompra(@PathVariable Integer ordenCompraId) {
+        return ordenCompraService.obtenerComprobanteCompra(ordenCompraId);
+    }
 }

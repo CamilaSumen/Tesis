@@ -13,4 +13,6 @@ public interface OrdenCompraService {
     OrdenCompra obtenerDetalleOrden(Integer ordenCompraId);
     List<DetalleOrdenCompra> obtenerDetallesOrden(Integer ordenCompraId);
     Map<String, Object> anularOrdenCompra(Integer ordenCompraId, String usuario, String motivoAnulacion);
+    ComprobanteCompra obtenerComprobanteCompra(Integer ordenCompraId);
+
 }

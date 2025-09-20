@@ -1,7 +1,7 @@
 -- =============================================
 -- SP: Listar órdenes de compra
 -- =============================================
-CREATE PROCEDURE sp_listar_ordenes_compra
+ALTER PROCEDURE sp_listar_ordenes_compra
 (
     @FechaInicio DATE = NULL,
     @FechaFin DATE = NULL,
@@ -10,8 +10,6 @@ CREATE PROCEDURE sp_listar_ordenes_compra
 )
 AS
 BEGIN
-    SET NOCOUNT ON;
-
     SELECT
         oc.nOrdenesCompraId as OrdenCompraId,
         oc.dFecha as Fecha,
@@ -19,6 +17,7 @@ BEGIN
         p.nRuc as ProveedorRuc,
         eoc.cDescripcion as Estado,
         oc.nTotal as Total,
+        oc.bPagado as Pagado,  -- AGREGAR ESTA LÍNEA
         COUNT(doc.nDetalleOrdenesCompraId) as TotalItems
     FROM OrdenesCompra oc
     INNER JOIN Proveedores p ON oc.nProveedorId = p.nProveedorId
@@ -30,6 +29,6 @@ BEGIN
         (@ProveedorId IS NULL OR oc.nProveedorId = @ProveedorId) AND
         (@EstadoId IS NULL OR oc.nEstadoOrdenCompraId = @EstadoId)
     GROUP BY oc.nOrdenesCompraId, oc.dFecha, p.nNombreProveedor, p.nRuc,
-             eoc.cDescripcion, oc.nTotal
+             eoc.cDescripcion, oc.nTotal, oc.bPagado  -- AGREGAR AQUÍ TAMBIÉN
     ORDER BY oc.dFecha DESC;
-END;
+END

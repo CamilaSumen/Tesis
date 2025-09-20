@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,7 +79,8 @@ public class OrdenCompraRepositoryImpl implements OrdenCompraRepository {
                         request.getTipoPago(),
                         request.getMontoPagado(),
                         request.getUsuario(),
-                        request.getObservaciones()
+                        request.getObservaciones(),
+                        request.getTipoComprobante()
                 },
                 (rs, rowNum) -> {
                     Map<String, Object> response = new HashMap<>();
@@ -107,6 +109,7 @@ public class OrdenCompraRepositoryImpl implements OrdenCompraRepository {
                     orden.setProveedorRuc(rs.getString("ProveedorRuc"));
                     orden.setEstado(rs.getString("Estado"));
                     orden.setTotal(rs.getBigDecimal("Total"));
+                    orden.setPagado(rs.getBoolean("Pagado"));
                     orden.setTotalItems(rs.getInt("TotalItems"));
                     return orden;
                 }
@@ -195,4 +198,105 @@ public class OrdenCompraRepositoryImpl implements OrdenCompraRepository {
         response.setMensaje(mensaje);
         return response;
     }
+
+
+    @Override
+    public ComprobanteCompra obtenerComprobanteCompra(Integer ordenCompraId) {
+        try {
+            List<Map<String, Object>> resultados = jdbcTemplate.query(
+                    StoredProcedureC.SP_OBTENER_COMPROBANTE_COMPRA,
+                    new Object[]{ordenCompraId},
+                    (rs, rowNum) -> {
+                        Map<String, Object> row = new HashMap<>();
+
+                        // Datos del comprobante
+                        row.put("comprobanteCompraId", rs.getInt("ComprobanteCompraId"));
+                        row.put("ordenCompraId", rs.getInt("OrdenCompraId"));
+                        row.put("proveedorId", rs.getInt("ProveedorId"));
+                        row.put("tipoComprobante", rs.getString("TipoComprobante"));
+                        row.put("numeroComprobante", rs.getString("NumeroComprobante"));
+                        row.put("fechaPago", rs.getTimestamp("FechaPago"));
+                        row.put("tipoPago", rs.getString("TipoPago"));
+                        row.put("subtotal", rs.getBigDecimal("Subtotal"));
+                        row.put("igv", rs.getBigDecimal("IGV"));
+                        row.put("totalFinal", rs.getBigDecimal("TotalFinal"));
+                        row.put("estado", rs.getString("Estado"));
+                        row.put("observaciones", rs.getString("Observaciones"));
+
+                        // Datos del proveedor
+                        row.put("proveedorNombre", rs.getString("ProveedorNombre"));
+                        row.put("proveedorRuc", rs.getString("ProveedorRuc"));
+                        row.put("proveedorDireccion", rs.getString("ProveedorDireccion"));
+                        row.put("proveedorTelefono", rs.getString("ProveedorTelefono"));
+
+                        return row;
+                    }
+            );
+
+            if (resultados.isEmpty()) {
+                return null;
+            }
+
+            // Tomar el primer resultado para los datos del comprobante
+            Map<String, Object> datosComprobante = resultados.get(0);
+
+            ComprobanteCompra comprobante = new ComprobanteCompra();
+            comprobante.setComprobanteCompraId((Integer) datosComprobante.get("comprobanteCompraId"));
+            comprobante.setOrdenCompraId((Integer) datosComprobante.get("ordenCompraId"));
+            comprobante.setProveedorId((Integer) datosComprobante.get("proveedorId"));
+            comprobante.setTipoComprobante((String) datosComprobante.get("tipoComprobante"));
+            comprobante.setNumeroComprobante((String) datosComprobante.get("numeroComprobante"));
+            comprobante.setFechaPago(((java.sql.Timestamp) datosComprobante.get("fechaPago")).toLocalDateTime());
+            comprobante.setTipoPago((String) datosComprobante.get("tipoPago"));
+            comprobante.setSubtotal((BigDecimal) datosComprobante.get("subtotal"));
+            comprobante.setIgv((BigDecimal) datosComprobante.get("igv"));
+            comprobante.setTotalFinal((BigDecimal) datosComprobante.get("totalFinal"));
+            comprobante.setEstado((String) datosComprobante.get("estado"));
+            comprobante.setObservaciones((String) datosComprobante.get("observaciones"));
+            comprobante.setProveedorNombre((String) datosComprobante.get("proveedorNombre"));
+            comprobante.setProveedorRuc((String) datosComprobante.get("proveedorRuc"));
+            comprobante.setProveedorDireccion((String) datosComprobante.get("proveedorDireccion"));
+            comprobante.setProveedorTelefono((String) datosComprobante.get("proveedorTelefono"));
+
+            // Obtener detalles
+            List<DetalleComprobanteCompra> detalles = obtenerDetallesComprobante(comprobante.getComprobanteCompraId());
+            comprobante.setDetalles(detalles);
+
+            return comprobante;
+
+        } catch (Exception e) {
+            System.out.println("Error al obtener comprobante: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private List<DetalleComprobanteCompra> obtenerDetallesComprobante(Integer comprobanteCompraId) {
+        String sql = "SELECT " +
+                "nDetalleComprobanteCompraId as DetalleId, " +
+                "nComprobanteCompraId as ComprobanteCompraId, " +
+                "nInsumoId as InsumoId, " +
+                "cNombreInsumo as NombreInsumo, " +
+                "nCantidad as Cantidad, " +
+                "nPrecioUnitario as PrecioUnitario, " +
+                "nSubtotal as Subtotal " +
+                "FROM DetalleComprobanteCompra " +
+                "WHERE nComprobanteCompraId = ? " +
+                "ORDER BY nDetalleComprobanteCompraId";
+
+        return jdbcTemplate.query(sql,
+                new Object[]{comprobanteCompraId},
+                (rs, rowNum) -> {
+                    DetalleComprobanteCompra detalle = new DetalleComprobanteCompra();
+                    detalle.setDetalleId(rs.getInt("DetalleId"));
+                    detalle.setComprobanteCompraId(rs.getInt("ComprobanteCompraId"));
+                    detalle.setInsumoId(rs.getInt("InsumoId"));
+                    detalle.setNombreInsumo(rs.getString("NombreInsumo"));
+                    detalle.setCantidad(rs.getBigDecimal("Cantidad"));
+                    detalle.setPrecioUnitario(rs.getBigDecimal("PrecioUnitario"));
+                    detalle.setSubtotal(rs.getBigDecimal("Subtotal"));
+                    return detalle;
+                }
+        );
+    }
+
 }

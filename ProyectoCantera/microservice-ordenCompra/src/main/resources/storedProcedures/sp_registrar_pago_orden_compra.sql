@@ -7,7 +7,8 @@ ALTER PROCEDURE sp_registrar_pago_orden_compra
     @TipoPago VARCHAR(50), -- Efectivo, Transferencia, Cheque
     @MontoPagado DECIMAL(10,2),
     @Usuario VARCHAR(100),
-    @Observaciones VARCHAR(500) = NULL
+    @Observaciones VARCHAR(500) = NULL,
+	@TipoComprobante VARCHAR(20) = 'FACTURA'
 )
 AS
 BEGIN
@@ -20,7 +21,7 @@ BEGIN
 
     -- Verificar que existe una sesión activa para el usuario
     SELECT @SesionActiva = nSesionCajaId
-    FROM SesionCaja
+    FROM SesionCaja WITH(NOLOCK)
     WHERE cUsuario = @Usuario AND cEstado = 'Abierta'
     ORDER BY dFechaApertura DESC;
 
@@ -32,8 +33,8 @@ BEGIN
 
     -- Obtener información de la orden
     SELECT @ProveedorNombre = p.nNombreProveedor, @TotalOrden = oc.nTotal
-    FROM OrdenesCompra oc
-    INNER JOIN Proveedores p ON oc.nProveedorId = p.nProveedorId
+    FROM OrdenesCompra oc WITH(NOLOCK)
+    INNER JOIN Proveedores p WITH(NOLOCK) ON oc.nProveedorId = p.nProveedorId
     WHERE oc.nOrdenesCompraId = @OrdenCompraId;
 
     IF @ProveedorNombre IS NULL
@@ -44,14 +45,14 @@ BEGIN
 
     -- Obtener tipo de movimiento según método de pago
     SELECT @TipoMovimientoPago = nTipoMovimientoCajaId
-    FROM TipoMovimientoCaja
+    FROM TipoMovimientoCaja WITH(NOLOCK)
     WHERE cDescripcion = 'Pago a Proveedor - ' + @TipoPago AND bEstado = 1;
 
     IF @TipoMovimientoPago IS NULL
     BEGIN
         -- Si no existe el tipo específico, usar "Pago a Proveedor - Efectivo" como default
         SELECT @TipoMovimientoPago = nTipoMovimientoCajaId
-        FROM TipoMovimientoCaja
+        FROM TipoMovimientoCaja WITH(NOLOCK)
         WHERE cDescripcion = 'Pago a Proveedor - Efectivo' AND bEstado = 1;
     END
 
@@ -70,9 +71,15 @@ BEGIN
             ISNULL(' - ' + @Observaciones, '')
         );
 
+
 		UPDATE OrdenesCompra
 		SET bPagado = 1
 		WHERE nOrdenesCompraId = @OrdenCompraId;
+
+
+		EXEC sp_generar_comprobante_compra
+        @OrdenCompraId, @TipoComprobante, @TipoPago, @Usuario, @Observaciones;
+
 
 		COMMIT TRANSACTION;
 

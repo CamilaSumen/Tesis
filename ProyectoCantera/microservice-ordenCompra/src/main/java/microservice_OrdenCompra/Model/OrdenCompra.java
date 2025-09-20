@@ -18,6 +18,7 @@ public class OrdenCompra implements Serializable {
     private Integer estadoId;
     private LocalDateTime fecha;
     private BigDecimal total;
+    private Boolean pagado;
 
     // Datos del proveedor (para consultas con JOIN)
     private String proveedorNombre;

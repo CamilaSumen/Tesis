@@ -48,4 +48,9 @@ public class OrdenCompraServiceImpl implements OrdenCompraService {
     public Map<String, Object> anularOrdenCompra(Integer ordenCompraId, String usuario, String motivoAnulacion) {
         return ordenCompraRepository.anularOrdenCompra(ordenCompraId, usuario, motivoAnulacion);
     }
+
+    @Override
+    public ComprobanteCompra obtenerComprobanteCompra(Integer ordenCompraId) {
+        return ordenCompraRepository.obtenerComprobanteCompra(ordenCompraId);
+    }
 }
