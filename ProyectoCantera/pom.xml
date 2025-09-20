@@ -39,6 +39,7 @@
     <module>microservice-comprobante</module>
     <module>microservice-cocina</module>
     <module>microservice-ordenCompra</module>
+    <module>microservice-reportes</module>
 
   </modules>
 

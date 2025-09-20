@@ -102,6 +102,10 @@ spring:
           uri: lb://msvc-ordenCompra
           predicates:
             - Path=/api/ordenCompra/**
+        - id: reportes
+          uri: lb://msvc-reportes
+          predicates:
+            - Path=/api/reportes/**
         - id: privilegio
           uri: lb://msvc-privilegio
           predicates:
