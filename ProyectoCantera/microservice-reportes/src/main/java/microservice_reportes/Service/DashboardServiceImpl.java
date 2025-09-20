@@ -22,21 +22,33 @@ public class DashboardServiceImpl implements DashboardService {
         DashboardData dashboard = new DashboardData();
 
         try {
-            // Obtener datos básicos
+            // Obtener datos para la fecha específica
             dashboard.setVentasDelDia(dashboardRepository.obtenerResumenVentasDia(fecha));
-            dashboard.setPedidosActivos(dashboardRepository.obtenerEstadosPedidos());
-            dashboard.setStockCritico(dashboardRepository.obtenerStockCritico());
-            dashboard.setProductoMasVendido(dashboardRepository.obtenerProductoMasVendido(fecha));
-            dashboard.setDeliveryInfo(dashboardRepository.obtenerResumenDelivery());
 
-            // Obtener datos semanales (últimos 7 días)
+            // Solo obtener pedidos activos si es hoy
+            if (fecha.equals(LocalDate.now())) {
+                dashboard.setPedidosActivos(dashboardRepository.obtenerEstadosPedidos());
+                dashboard.setDeliveryInfo(dashboardRepository.obtenerResumenDelivery());
+            } else {
+                // Para fechas pasadas, mostrar datos vacíos
+                dashboard.setPedidosActivos(new PedidosActivos());
+                dashboard.setDeliveryInfo(new DeliveryInfo());
+            }
+
+            // Stock crítico siempre se muestra (es actual)
+            dashboard.setStockCritico(dashboardRepository.obtenerStockCritico());
+
+            // Producto más vendido para la fecha seleccionada
+            dashboard.setProductoMasVendido(dashboardRepository.obtenerProductoMasVendido(fecha));
+
+            // Obtener datos semanales desde la fecha seleccionada hacia atrás
             LocalDate fechaDesde = fecha.minusDays(6);
             dashboard.setVentasSemanales(dashboardRepository.obtenerVentasSemanales(fechaDesde, fecha));
 
-            // Obtener ventas por categoría
+            // Obtener ventas por categoría para la fecha seleccionada
             dashboard.setVentasPorCategoria(dashboardRepository.obtenerVentasPorCategoria(fecha));
 
-            // Procesar caja actual
+            // Procesar caja para la fecha seleccionada
             dashboard.setCajaActual(procesarCajaActual(fecha));
 
         } catch (Exception e) {
@@ -47,12 +59,55 @@ public class DashboardServiceImpl implements DashboardService {
         return dashboard;
     }
 
+
+    public DashboardData obtenerDatosDashboardRango(LocalDate fechaInicio, LocalDate fechaFin) {
+        DashboardData dashboard = new DashboardData();
+
+        try {
+            // Para rangos, necesitarías crear SPs adicionales que sumen datos de múltiples días
+            // Por simplicidad, uso la fecha fin como referencia
+            dashboard.setVentasDelDia(obtenerResumenVentasRango(fechaInicio, fechaFin));
+            dashboard.setPedidosActivos(new PedidosActivos()); // No aplica para rangos históricos
+            dashboard.setStockCritico(dashboardRepository.obtenerStockCritico());
+            dashboard.setProductoMasVendido(obtenerProductoMasVendidoRango(fechaInicio, fechaFin));
+            dashboard.setDeliveryInfo(new DeliveryInfo()); // No aplica para rangos históricos
+            dashboard.setVentasSemanales(dashboardRepository.obtenerVentasSemanales(fechaInicio, fechaFin));
+            dashboard.setVentasPorCategoria(obtenerVentasPorCategoriaRango(fechaInicio, fechaFin));
+            dashboard.setCajaActual(procesarCajaActualRango(fechaInicio, fechaFin));
+
+        } catch (Exception e) {
+            dashboard = crearDashboardVacio();
+        }
+
+        return dashboard;
+    }
+
+    private VentasDelDia obtenerResumenVentasRango(LocalDate fechaInicio, LocalDate fechaFin) {
+        // Implementar SP que sume ventas en un rango de fechas
+        // Por ahora, usar la lógica existente para un día
+        return dashboardRepository.obtenerResumenVentasDia(fechaFin);
+    }
+
+    private ProductoMasVendido obtenerProductoMasVendidoRango(LocalDate fechaInicio, LocalDate fechaFin) {
+        // Implementar SP que obtenga producto más vendido en un rango
+        return dashboardRepository.obtenerProductoMasVendido(fechaFin);
+    }
+
+    private List<VentasPorCategoria> obtenerVentasPorCategoriaRango(LocalDate fechaInicio, LocalDate fechaFin) {
+        // Implementar SP que sume categorías en un rango
+        return dashboardRepository.obtenerVentasPorCategoria(fechaFin);
+    }
+
+    private CajaActual procesarCajaActualRango(LocalDate fechaInicio, LocalDate fechaFin) {
+        // Implementar lógica para sumar caja en un rango
+        return procesarCajaActual(fechaFin);
+    }
+
     private CajaActual procesarCajaActual(LocalDate fecha) {
         try {
             List<DesgloseCaja> desglose = dashboardRepository.obtenerDesgloseCaja(fecha);
             CajaActual caja = new CajaActual();
 
-            // Mapear tipos de pago a campos específicos
             Map<String, BigDecimal> montosPorTipo = desglose.stream()
                     .collect(Collectors.toMap(
                             DesgloseCaja::getTipoPago,
@@ -67,7 +122,6 @@ public class DashboardServiceImpl implements DashboardService {
             caja.setPlin(montosPorTipo.getOrDefault("Plin", BigDecimal.ZERO));
             caja.setTransferencia(montosPorTipo.getOrDefault("Transferencia", BigDecimal.ZERO));
 
-            // Calcular total
             BigDecimal total = desglose.stream()
                     .map(DesgloseCaja::getMonto)
                     .reduce(BigDecimal.ZERO, BigDecimal::add);

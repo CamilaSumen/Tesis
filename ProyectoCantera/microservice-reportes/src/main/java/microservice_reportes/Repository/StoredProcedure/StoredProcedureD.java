@@ -11,4 +11,11 @@ public class StoredProcedureD {
     public static final String SP_VENTAS_SEMANALES = "EXEC sp_obtener_ventas_semanales ?, ?";
     public static final String SP_VENTAS_POR_CATEGORIA = "EXEC sp_obtener_ventas_por_categoria ?";
     public static final String SP_DESGLOSE_CAJA = "EXEC sp_obtener_desglose_caja_dia ?";
+
+    // Nuevos procedimientos para rangos
+    public static final String SP_RESUMEN_VENTAS_RANGO = "EXEC sp_obtener_resumen_ventas_rango ?, ?";
+    public static final String SP_PRODUCTO_MAS_VENDIDO_RANGO = "EXEC sp_obtener_producto_mas_vendido_rango ?, ?";
+    public static final String SP_VENTAS_POR_CATEGORIA_RANGO = "EXEC sp_obtener_ventas_por_categoria_rango ?, ?";
+    public static final String SP_DESGLOSE_CAJA_RANGO = "EXEC sp_obtener_desglose_caja_rango ?, ?";
+
 }
