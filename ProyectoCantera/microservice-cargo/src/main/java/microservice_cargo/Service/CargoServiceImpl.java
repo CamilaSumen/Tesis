@@ -3,7 +3,6 @@ package microservice_cargo.Service;
 import microservice_cargo.Model.*;
 import microservice_cargo.Repository.CargoRepository;
 import org.springframework.stereotype.Service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,6 +19,11 @@ public class CargoServiceImpl implements CargoService {
     }
 
     @Override
+    public List<Cargo> listarCargosConEmpleados() { // NUEVO
+        return cargoRepository.listarCargosConEmpleados();
+    }
+
+    @Override
     public void insertarCargo(Cargo cargo) {
         cargoRepository.insertarCargo(cargo);
     }
@@ -33,5 +37,4 @@ public class CargoServiceImpl implements CargoService {
     public void modificarCargo(Cargo cargo) {
         cargoRepository.modificarCargo(cargo);
     }
-
 }

@@ -1,6 +1,7 @@
 package microservice.empleado.Model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,4 +27,9 @@ public class Empleado implements Serializable {
     private LocalDate entryDate;
     private Double salary;
     private boolean stateEmployer;
+
+    private String chargeName;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
 }

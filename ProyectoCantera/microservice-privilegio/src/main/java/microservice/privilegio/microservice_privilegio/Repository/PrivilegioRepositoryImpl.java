@@ -1,9 +1,12 @@
 package microservice.privilegio.microservice_privilegio.Repository;
 
-import microservice.privilegio.microservice_privilegio.Model.Privilegio;
-import microservice.privilegio.microservice_privilegio.Repository.RowMapper.PrivilegioRowMapper;
+import microservice.privilegio.microservice_privilegio.Model.Elemento;
+import microservice.privilegio.microservice_privilegio.Model.ElementoxCargo;
+import microservice.privilegio.microservice_privilegio.Repository.RowMapper.ElementoRowMapper;
+import microservice.privilegio.microservice_privilegio.Repository.RowMapper.ElementoxCargoRowMapper;
 import microservice.privilegio.microservice_privilegio.Repository.StoredProcedure.StoredProcedureC;
-import microservice.privilegio.microservice_privilegio.Repository.Translator.PrivilegioTranslator;
+import microservice.privilegio.microservice_privilegio.Repository.Translator.ElementoTranslator;
+import microservice.privilegio.microservice_privilegio.Repository.Translator.ElementoxCargoTranslator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,40 +16,54 @@ import java.util.stream.Collectors;
 
 @Repository
 public class PrivilegioRepositoryImpl implements PrivilegioRepository {
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-
-    /*IMPLEMENTACION PARA LOS PRIVILEGIOS*/
     @Override
-    public List<Privilegio> listarPrivilegios() {
-        String sql = StoredProcedureC.SEL_PRIVILEGIO;
-        List<PrivilegioTranslator> lista = jdbcTemplate.query(sql, new PrivilegioRowMapper());
+    public List<Elemento> listarElementos() {
+        String sql = StoredProcedureC.SEL_ELEMENTO_LISTAR;
+        List<ElementoTranslator> lista = jdbcTemplate.query(sql, new ElementoRowMapper());
         return lista.stream()
-                .map(PrivilegioTranslator::toPrivilegioDTO)
+                .map(ElementoTranslator::toElementoDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void insertarPrivilegio(Privilegio privilegio) {
-        jdbcTemplate.update(StoredProcedureC.INS_PRIVILEGIONUEVO,
-                privilegio.getPrivilegeName(),
-                privilegio.getDescription(),
-                privilegio.getObservation());
+    public List<Elemento> listarElementosDisponibles(int cargoId) {
+        String sql = StoredProcedureC.SEL_ELEMENTO_DISPONIBLES;
+        List<ElementoTranslator> lista = jdbcTemplate.query(sql, new ElementoRowMapper(), cargoId);
+        return lista.stream()
+                .map(ElementoTranslator::toElementoDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public void eliminarPrivilegioLogico(int id) {
-        jdbcTemplate.update(StoredProcedureC.UPD_ELIMARPRIVILEGIOLOGICO, id);
+    public List<ElementoxCargo> listarElementosPorCargo(int cargoId) {
+        String sql = StoredProcedureC.SEL_ELEMENTOXCARGO_PORCARGO;
+        List<ElementoxCargoTranslator> lista = jdbcTemplate.query(sql, new ElementoxCargoRowMapper(), cargoId);
+        return lista.stream()
+                .map(ElementoxCargoTranslator::toElementoxCargoDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public void modificarPrivilegio(Privilegio privilegio) {
-        jdbcTemplate.update(StoredProcedureC.UPD_MODIFICARPRIVILEGIO,
-                privilegio.getPrivilegeId(),
-                privilegio.getPrivilegeName(),
-                privilegio.getDescription(),
-                privilegio.getObservation());
+    public void asignarElementoACargo(int elementoId, int cargoId) {
+        jdbcTemplate.update(StoredProcedureC.INS_ELEMENTOXCARGO, elementoId, cargoId);
     }
 
+    @Override
+    public void eliminarElementoDeCargo(int elementoxCargoId) {
+        jdbcTemplate.update(StoredProcedureC.DEL_ELEMENTOXCARGO, elementoxCargoId);
+    }
+
+    @Override
+    public void eliminarElementoPorElementoCargo(int elementoId, int cargoId) {
+        jdbcTemplate.update(StoredProcedureC.DEL_ELEMENTOXCARGO_PORELEMENTO, elementoId, cargoId);
+    }
+
+    @Override
+    public void guardarAsignacionesBatch(int cargoId, String elementosIds) {
+        jdbcTemplate.update(StoredProcedureC.INS_ELEMENTOXCARGO_BATCH, cargoId, elementosIds);
+    }
 }

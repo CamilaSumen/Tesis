@@ -16,6 +16,15 @@ public class CargoRowMapper implements RowMapper<CargoTranslator> {
         cargo.setDescriptionCargue(rs.getString("cDescripcion"));
         cargo.setSalary(rs.getDouble("nSueldo"));
         cargo.setStateCargue(rs.getBoolean("bEstado"));
+
+        // NUEVO - Verificar si existe la columna antes de leer
+        try {
+            cargo.setCantidadEmpleados(rs.getInt("nCantidadEmpleados"));
+        } catch (SQLException e) {
+            // Si no existe la columna, se ignora (para compatibilidad con PA antiguo)
+            cargo.setCantidadEmpleados(0);
+        }
+
         return cargo;
     }
 }

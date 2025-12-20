@@ -1,16 +1,8 @@
+exec PA_Empleado_Sel_Listar
+
 IF OBJECT_ID('PA_Empleado_Sel_Listar') IS NOT NULL
     DROP PROCEDURE PA_Empleado_Sel_Listar
 GO
-/*---------------------------------------------------------------------------------
-PROPÓSITO			| Lista todos los empleados activos con sus datos.
-AUTOR				| Jorge Bonifaz
-FECHA DE CREACIÓN	| 2025-07-05
------------------------------------------------------------------------------------
-
-EJEMPLO:
-EXEC PA_Empleado_Sel_Listar
------------------------------------------------------------------------------------*/
-
 CREATE PROCEDURE PA_Empleado_Sel_Listar
 AS
 BEGIN
@@ -23,17 +15,17 @@ BEGIN
         p.cApePaterno,
         p.cApeMaterno,
         p.cDni,
+        p.cDireccion,        -- AGREGADO
+        c.nCargoId,          -- AGREGADO
+        c.cNombreCargo,
+        c.nSueldo,
+        e.fechaIngreso,
         p.cCorreo,
         p.cTelefono,
         p.dFechaNacimiento,
-        p.cDireccion,
-        e.nCargoId,
-        c.cNombreCargo,
-        e.fechaIngreso,
-        c.nSueldo,
         e.bactivo
-    FROM Empleado e
-    INNER JOIN Persona p ON e.nPersonaId = p.nPersonaId
-    INNER JOIN Cargo c ON e.nCargoId = c.nCargoId
+    FROM Empleado e with(nolock)
+    INNER JOIN Persona p with(nolock) ON e.nPersonaId = p.nPersonaId
+    INNER JOIN Cargo c with(nolock) ON e.nCargoId = c.nCargoId
     --WHERE e.bactivo = 1
 END

@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/microservice-adicional/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cargo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-cartelera/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-categoria/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-categoriainsumo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cocina/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-comprobante/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-configServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-confiteria/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-delivery/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-empleado/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-formapago/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-insumo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-mesa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-ordenCompra/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-pedido/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-peliculas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-privilegio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-producto/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-proveedor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-reportes/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-sedes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-turno/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-usuario/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-ventas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

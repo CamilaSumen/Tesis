@@ -16,6 +16,7 @@ public class UsuarioRowMapper implements RowMapper<UsuarioTranslator> {
         usuario.setUsername(rs.getString("cCodUsuario"));
         usuario.setPassword(rs.getString("cPassword"));
         usuario.setCargoCod(rs.getString("cCargoCod"));
+        usuario.setCargoId(rs.getInt("nCargoId"));
 
 /*
         usuario.setPrivilegeId(rs.getInt("nPrivilegioId"));

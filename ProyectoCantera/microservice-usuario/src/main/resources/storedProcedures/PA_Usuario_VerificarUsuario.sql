@@ -6,7 +6,7 @@ PROPÓSITO         | Lista todos los usuarios activos.
 AUTOR             | Jorge Bonifaz
 FECHA DE CREACIÓN | 2025-07-05
 EJEMPLO:
-EXEC PA_Usuario_VerificarUsuario 'JADBA', 'JABA'
+EXEC PA_Usuario_VerificarUsuario 'JABA', 'JABA'
 -----------------------------------------------------------------------------------*/
 CREATE PROCEDURE PA_Usuario_VerificarUsuario
 	@cCodUsuario	VARCHAR(4),
@@ -21,20 +21,23 @@ BEGIN
 			(
 				cCodUsuario		VARCHAR(4),
 				cPassword		VARCHAR(MAX),
-				cCargoCod		VARCHAR(40)
+				cCargoCod		VARCHAR(40),
+				nCargoId		INT
 			)
 
-			INSERT INTO #Usuario(cCodUsuario, cPassword, cCargoCod)
+			INSERT INTO #Usuario(cCodUsuario, cPassword, cCargoCod, nCargoId)
 			SELECT
 				T1.cCodUsuario,
 				T1.cPassword,
-				T3.cCargoCod
+				T3.cCargoCod,
+				T3.nCargoId
 			FROM Usuarios T1
 			INNER JOIN Empleado T2 WITH(NOLOCK) ON T1.nEmpleadoId = t2.nEmpleadoId
 			INNER JOIN Cargo T3 WITH(NOLOCK) ON T2.nCargoId = T3.nCargoId
 			WHERE T1.cCodUsuario = @cCodUsuario AND T1.cPassword = @cPassword
 
-			SELECT cCodUsuario, cPassword, cCargoCod FROM #Usuario
+			SELECT cCodUsuario, cPassword, cCargoCod, nCargoId
+			FROM #Usuario
 
 		COMMIT TRAN
 	END TRY

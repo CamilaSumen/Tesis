@@ -7,14 +7,13 @@ import java.io.Serializable;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Privilegio implements Serializable {
+public class Elemento implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int privilegeId;
-    private String privilegeName;
-    private String description;
-    private String observation;
-    private boolean stateprivilege;
-
+    private Integer elementId;
+    private String elementCode;
+    private String module;
+    private String elementName;
+    private String elementCommand;
 }

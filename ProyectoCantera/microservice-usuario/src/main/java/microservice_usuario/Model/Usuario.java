@@ -15,6 +15,7 @@ public class Usuario implements Serializable {
     private String username;
     private String password;
     private String cargoCod;
+    private Integer cargoId;
 
     private Integer privilegeId;
     private String privilegeName;

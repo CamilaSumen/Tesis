@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class EmpleadoRowMapper implements RowMapper<EmpleadoTranslator> {
 
     @Override
@@ -21,11 +20,18 @@ public class EmpleadoRowMapper implements RowMapper<EmpleadoTranslator> {
         empleado.setEmail(rs.getString("cCorreo"));
         empleado.setPhone(rs.getString("cTelefono"));
 
-        empleado.setBirthDate(rs.getDate("dFechaNacimiento").toLocalDate());
+        // Manejo seguro de fechas nullables
+        if (rs.getDate("dFechaNacimiento") != null) {
+            empleado.setBirthDate(rs.getDate("dFechaNacimiento").toLocalDate());
+        }
+
         empleado.setAddress(rs.getString("cDireccion"));
 
-        empleado.setChargeId(rs.getInt("nCargoId"));
-        empleado.setEntryDate(rs.getDate("fechaIngreso").toLocalDate());
+        empleado.setChargeName(rs.getString("cNombreCargo"));
+
+        if (rs.getDate("fechaIngreso") != null) {
+            empleado.setEntryDate(rs.getDate("fechaIngreso").toLocalDate());
+        }
 
         empleado.setSalary(rs.getDouble("nSueldo"));
         empleado.setStateEmployer(rs.getBoolean("bactivo"));

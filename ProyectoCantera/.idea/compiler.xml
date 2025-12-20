@@ -9,24 +9,62 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
         <module name="microservice-confiteria" />
+        <module name="microservice-cocina" />
+        <module name="microservice-producto" />
         <module name="microservice-ventas" />
+        <module name="microservice-comprobante" />
+        <module name="microservice-mesa" />
+        <module name="microservice-categoria" />
+        <module name="microservice-usuario" />
         <module name="microservice-cartelera" />
-        <module name="microservice-configServer" />
+        <module name="microservice-empleado" />
         <module name="microservice-sedes" />
         <module name="microservice-peliculas" />
+        <module name="microservice-insumo" />
+        <module name="microservice-ordenCompra" />
+        <module name="microservice-reportes" />
+        <module name="microservice-formapago" />
+        <module name="microservice-turno" />
+        <module name="microservice-pedido" />
+        <module name="microservice-proveedor" />
+        <module name="microservice-categoriainsumo" />
+        <module name="microservice-privilegio" />
+        <module name="microservice-delivery" />
+        <module name="microservice-configServer" />
+        <module name="microservice-adicional" />
+        <module name="microservice-cargo" />
         <module name="microservice-eureka" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-adicional" options="-parameters" />
+      <module name="microservice-cargo" options="-parameters" />
       <module name="microservice-cartelera" options="-parameters" />
+      <module name="microservice-categoria" options="-parameters" />
+      <module name="microservice-categoriainsumo" options="-parameters" />
+      <module name="microservice-cocina" options="-parameters" />
+      <module name="microservice-comprobante" options="-parameters" />
       <module name="microservice-configServer" options="-parameters" />
       <module name="microservice-confiteria" options="-parameters" />
+      <module name="microservice-delivery" options="-parameters" />
+      <module name="microservice-empleado" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-formapago" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-insumo" options="-parameters" />
+      <module name="microservice-mesa" options="-parameters" />
+      <module name="microservice-ordenCompra" options="-parameters" />
+      <module name="microservice-pedido" options="-parameters" />
       <module name="microservice-peliculas" options="-parameters" />
+      <module name="microservice-privilegio" options="-parameters" />
+      <module name="microservice-producto" options="-parameters" />
+      <module name="microservice-proveedor" options="-parameters" />
+      <module name="microservice-reportes" options="-parameters" />
       <module name="microservice-sedes" options="-parameters" />
+      <module name="microservice-turno" options="-parameters" />
+      <module name="microservice-usuario" options="-parameters" />
       <module name="microservice-ventas" options="-parameters" />
     </option>
   </component>

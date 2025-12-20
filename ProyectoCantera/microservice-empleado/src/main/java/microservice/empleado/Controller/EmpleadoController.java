@@ -1,5 +1,6 @@
 package microservice.empleado.Controller;
 
+import microservice.empleado.Model.Cliente;
 import microservice.empleado.Model.Empleado;
 import microservice.empleado.Service.EmpleadoService;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/empleado")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class EmpleadoController {
 
     private final EmpleadoService empleadoService;
@@ -36,4 +37,11 @@ public class EmpleadoController {
     public void eliminar(@PathVariable int id) {
         empleadoService.eliminarEmpleadoLogico(id);
     }
+
+    @PostMapping("/listarCliente")
+    public List<Cliente> listarCliente(@RequestBody Cliente cliente) {
+        // Llamada al servicio para listar los clientes por el DNI recibido en el body
+        return empleadoService.listarClientes(cliente);
+    }
+
 }

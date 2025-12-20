@@ -9,6 +9,7 @@ public class UsuarioTranslator {
     private String username;
     private String password;
     private String cargoCod;
+    private Integer cargoId;
 
     private Integer privilegeId;
     private String privilegeName;
@@ -37,6 +38,10 @@ public class UsuarioTranslator {
 
     public void setCargoCod(String cargoCod) {
         this.cargoCod = cargoCod;
+    }
+
+    public void setCargoId(Integer cargoId) {
+        this.cargoId = cargoId;
     }
 
     public void setPrivilegeId(Integer privilegeId) {
@@ -94,6 +99,7 @@ public class UsuarioTranslator {
         usuario.setUsername(this.username);
         usuario.setPassword(this.password);
         usuario.setCargoCod(this.cargoCod);
+        usuario.setCargoId(this.cargoId);
 
         usuario.setPrivilegeId(this.privilegeId);
         usuario.setPrivilegeName(this.privilegeName);

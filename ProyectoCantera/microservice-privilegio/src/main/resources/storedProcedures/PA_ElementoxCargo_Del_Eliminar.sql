@@ -1,16 +1,16 @@
-IF OBJECT_ID('PA_Empleado_Upd_Eliminar') IS NOT NULL
-    DROP PROCEDURE PA_Empleado_Upd_Eliminar
+IF OBJECT_ID('PA_ElementoxCargo_Del_Eliminar') IS NOT NULL
+    DROP PROCEDURE PA_ElementoxCargo_Del_Eliminar
 GO
 /*---------------------------------------------------------------------------------
-PROPÓSITO			| Realiza eliminación lógica de un empleado.
+PROPÓSITO			| Elimina la asignación de un elemento a un cargo
 AUTOR				| Jorge Bonifaz
 FECHA DE CREACIÓN	| 2025-12-19
 -----------------------------------------------------------------------------------
 EJEMPLO:
-EXEC PA_Empleado_Upd_Eliminar @nEmpleadoId = 1
+EXEC PA_ElementoxCargo_Del_Eliminar @nElementoxCargoId = 1
 -----------------------------------------------------------------------------------*/
-CREATE PROCEDURE PA_Empleado_Upd_Eliminar(
-    @nEmpleadoId INT
+CREATE PROCEDURE PA_ElementoxCargo_Del_Eliminar(
+    @nElementoxCargoId INT
 )
 AS
 BEGIN
@@ -19,22 +19,16 @@ BEGIN
     BEGIN TRY
         BEGIN TRAN
 
-            -- Validar que el empleado existe
-            IF NOT EXISTS(SELECT 1 FROM Empleado WHERE nEmpleadoId = @nEmpleadoId)
+            -- Validar que existe
+            IF NOT EXISTS(SELECT 1 FROM ElementoxCargo WHERE nElementoxCargoId = @nElementoxCargoId)
             BEGIN
-                RAISERROR('El empleado no existe.', 16, 1)
+                RAISERROR('La asignación no existe.', 16, 1)
                 RETURN
             END
 
-            -- Desactivar empleado
-            UPDATE Empleado
-            SET bactivo = 0
-            WHERE nEmpleadoId = @nEmpleadoId
-
-            -- Desactivar usuario asociado
-            UPDATE Usuarios
-            SET nEstado = 0
-            WHERE nEmpleadoId = @nEmpleadoId
+            -- Eliminar
+            DELETE FROM ElementoxCargo
+            WHERE nElementoxCargoId = @nElementoxCargoId
 
         COMMIT TRAN
     END TRY
@@ -54,3 +48,4 @@ BEGIN
         RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState)
     END CATCH
 END
+GO

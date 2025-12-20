@@ -1,5 +1,6 @@
 package microservice.empleado.Service;
 
+import microservice.empleado.Model.Cliente;
 import microservice.empleado.Model.Empleado;
 import microservice.empleado.Repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public void modificarEmpleado(Empleado empleado) {
         empleadoRepository.modificarEmpleado(empleado);
     }
+
+    @Override
+    public List<Cliente> listarClientes(Cliente cliente) {
+        return empleadoRepository.listarClientes(cliente);
+    }
+
 }

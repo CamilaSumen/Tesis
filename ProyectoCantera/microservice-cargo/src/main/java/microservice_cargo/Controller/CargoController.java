@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cargo")
-
 public class CargoController {
 
     private final CargoService cargoService;
@@ -20,6 +19,11 @@ public class CargoController {
     @GetMapping("/listar")
     public List<Cargo> listar() {
         return cargoService.listarCargos();
+    }
+
+    @GetMapping("/listar-con-empleados") // NUEVO ENDPOINT
+    public List<Cargo> listarConEmpleados() {
+        return cargoService.listarCargosConEmpleados();
     }
 
     @PostMapping("/insertar")

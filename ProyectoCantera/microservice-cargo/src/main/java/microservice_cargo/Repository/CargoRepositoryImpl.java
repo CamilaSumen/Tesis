@@ -27,6 +27,15 @@ public class CargoRepositoryImpl implements CargoRepository {
     }
 
     @Override
+    public List<Cargo> listarCargosConEmpleados() { // NUEVO
+        String sql = StoredProcedureC.SEL_CARGO_CON_EMPLEADOS;
+        List<CargoTranslator> lista = jdbcTemplate.query(sql, new CargoRowMapper());
+        return lista.stream()
+                .map(CargoTranslator::toCargoDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void insertarCargo(Cargo cargo) {
         jdbcTemplate.update(StoredProcedureC.INS_CARGONUEVO,
                 cargo.getNameCargue(),

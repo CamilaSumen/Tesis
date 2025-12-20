@@ -1,5 +1,6 @@
 package microservice.empleado.Repository;
 
+import microservice.empleado.Model.Cliente;
 import microservice.empleado.Model.Empleado;
 
 import java.util.List;
@@ -12,5 +13,6 @@ public interface EmpleadoRepository {
     void eliminarEmpleadoLogico(int id);
     void modificarEmpleado(Empleado empleado);
 
+    List<Cliente> listarClientes(Cliente cliente);
 
 }

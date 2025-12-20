@@ -1,6 +1,5 @@
 package microservice.empleado.Repository.Translator;
 
-
 import microservice.empleado.Model.Empleado;
 
 import java.time.LocalDate;
@@ -18,11 +17,12 @@ public class EmpleadoTranslator {
     private String email;
 
     private Integer chargeId;
+    private String chargeName;
     private LocalDate entryDate;
-
     private Double salary;
     private boolean stateEmployer;
 
+    // Getters y Setters
     public void setIdEmployer(int idEmployer) {
         this.idEmployer = idEmployer;
     }
@@ -63,6 +63,10 @@ public class EmpleadoTranslator {
         this.chargeId = chargeId;
     }
 
+    public void setChargeName(String chargeName) {
+        this.chargeName = chargeName;
+    }
+
     public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
@@ -87,6 +91,7 @@ public class EmpleadoTranslator {
         empleado.setDni(this.dni);
         empleado.setEmail(this.email);
         empleado.setChargeId(this.chargeId);
+        empleado.setChargeName(this.chargeName);
         empleado.setEntryDate(this.entryDate);
         empleado.setSalary(this.salary);
         empleado.setStateEmployer(this.stateEmployer);
